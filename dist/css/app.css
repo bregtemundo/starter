@@ -819,7 +819,7 @@ b, strong, .bold {
     color: #111; }
 
 .o-site-container {
-  max-width: 100%;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   margin: 0 2.60859%; }
@@ -829,7 +829,18 @@ b, strong, .bold {
     clear: both; }
   @media (min-width: 1325px) {
     .o-site-container {
-      margin: 0; } }
+      margin: 0 auto; } }
+
+/**
+ * break out of the container and put block full width of the screen: 
+ */
+.o-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw; }
 
 /* ==========================================================================
    #MEDIA
@@ -953,6 +964,15 @@ b, strong, .bold {
   overflow: hidden;
   z-index: 1;
   border: 5px solid red; }
+
+.field--name-field-image {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: red; }
 
 body {
   width: 100%;

@@ -1,0 +1,16 @@
+/**
+ * break out of the container and put block full width of the screen: 
+ */
+
+@mixin o-full-width() {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;  
+}
+
+.o-full-width {
+  @include o-full-width();
+}
