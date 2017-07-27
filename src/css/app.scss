@@ -1,0 +1,85 @@
+//import vendor plugins
+@import "susy";
+@import "breakpoint";
+@import "easings";
+@import "family";
+//@import "typi";
+@import "megatype";
+@import "normalize";
+@import "smooth-scrollbar";
+@import "flickity";
+
+
+@import "variables/**/*";
+@import "utils/**/*";
+@import "base/**/*"; 
+@import "objects/**/*"; 
+@import "components/**/*";
+
+
+
+
+
+// smooth scroll needs parent to be specific width/height
+body {
+  width: 100%;
+  height: 100vh; 
+}
+
+// scrollmagic with gsap tweens , add some easing in between steps
+.node__meta, .block-page-title-block {  
+  transition: 0.3s transform; 
+}
+
+//todo: only keep imports here
+
+// page default state
+// todo: no blank state when not using transition
+.layout-container {
+  opacity: 0;  
+  transition: opacity .5s $easeOutQuad, transform 2s $easeOutCubic;
+  
+  h1 {
+    display: inline-block;
+    transform: translateY(100px) scaleX(1) scaleY(2);
+    transition: transform .6s $easeOutBack;
+  }
+}
+
+
+// loading page (outro)
+.dom-is-loading .layout-container {
+  opacity: 0;
+  transform: translateY(-100px);
+  
+  
+  h1 {
+    transform: translateY(-100px) scaleX(.5) scaleY(4);    
+  }
+}
+
+// page loaded (intro)
+.dom-is-loaded .layout-container {
+  opacity: 1;
+  transform: translateY(0);
+  
+  h1 {
+    transform: translateY(0px) scaleX(1) scaleY(1);    
+  }
+}
+
+.block-page-title-block {    
+     
+}
+
+// scrollmagic onEnter animation
+h1 {
+  transition: 2s all ease-out !important;
+  opacity: 0;
+  transform: translateY(200px) !important;
+}
+h1.active {
+  
+  opacity: 1;
+  transform: translateY(0) !important;
+}

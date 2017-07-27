@@ -1,0 +1,9 @@
+// get color from $colors map
+@function get-color($key) {  
+  @return map-get($colors, $key);
+}
+
+// alternative name for get-color
+@function color($key){
+  @return get-color($key);
+}

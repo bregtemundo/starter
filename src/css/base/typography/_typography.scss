@@ -1,0 +1,127 @@
+@include type-init;
+ 
+
+// overwrite root font-size: scaling font when large screen
+/*
+html {    
+  @include respond-to(lg) {
+    font-size: 8 / 1325 * 100vw;
+  }
+}
+*/
+
+// set default type and font-size, color
+.layout-container {
+  @include ff('body');
+  color: color(body);
+  @include type('base', 0, 0, 'body');  
+}
+ 
+p {
+  @include vr(margin-top, 1);
+}
+
+
+h1 {
+  //@include type((12px, 10.5), 2, 2);
+  //@include type((22px, 1.3), 1, 3);
+  //@include type(18px, 2, 2);
+  @include type('h1', 2, 2, 'title');  
+  @include fw('title', 'light')
+}
+
+
+//general styles
+
+// input
+input, textarea, select {  
+  @include ff(body);
+  @include fw(body, normal)
+}
+
+// Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-feature-settings: 'dlig', 'liga', 'lnum', 'kern';
+  
+  @include ff(title);
+  @include fw(title, bold);
+}
+
+// Heading level 1.
+h1, .h1, .alpha {
+  @include type(h1, 3,  2, title);  
+}
+
+// Heading level 2.
+h2, .h2, .beta {
+  @include type(h2, 3,  1, title);
+}
+
+// Heading level 3.
+h3, .h3, .gamma {
+  @include type(h3, 3,  2, title);
+}
+
+// Heading level 4.
+h4, .h4, .delta {
+  @include type(h4, 2,  0, title);
+}
+
+// Heading level 5.
+h5, .h5, .epsilon {
+  @include type(h5, 2,  0, title);
+}
+
+// Heading level 6.
+h6, .h6, .zeta {
+  @include type(h6, 2,  0, title);
+}
+
+// Bold.
+b, strong, .bold {
+  @include fw(body, bold);
+}
+
+//content styles (inside body field)
+.layout-container {
+
+  // Paragraphs. OpenType ligatures and oldstyle figures enabled if available.
+  p {
+    font-feature-settings: 'kern', 'onum', 'liga';
+    @include type(base, 2, 2, body);
+  }
+
+  // Lists.
+  ul:not(.tabs) {
+    @include type(base, 3, 2, body);
+
+    li {
+      font-feature-settings: 'kern', 'onum', 'liga';
+      margin-left: 2rem;
+
+      ol, ul {
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  // replace list-style with char
+  ul:not(.tabs) {
+    list-style: none;
+    li {
+      padding-left: 1em;
+      text-indent: -.7em;
+      margin-left: 0;
+    }
+
+    li:before {
+      content: "■ ";
+      color: color(primary);
+    }
+  }
+}
+
+  

@@ -1,0 +1,23 @@
+// strip units
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+// convert px to rem
+@function rem($value, $context:16){
+  $rootsize: 16;  
+  $rootsize: map-fetch($breakpoint-map  , (0, 'rootsize'));
+    
+  @return strip-unit($value) / strip-unit($rootsize) + 0rem;
+}
+
+// returns the size of x * vertical padding
+@function vr($value:1) {
+  // get gutter of baseline unit (in context of breakpoint)
+  $gutter: if($baseline-grid, get-rootsize(), get-gutter-vertical());
+  
+  $value-gutter:  strip-unit($value) * $gutter;
+  
+  @return rem($value-gutter);
+}

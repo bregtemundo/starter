@@ -1,0 +1,7 @@
+app:
+  version: 1.x
+  css:
+    theme:
+      dist/css/app.css: {}
+  js:
+    dist/js/app.js: {}

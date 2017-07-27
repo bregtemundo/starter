@@ -1,0 +1,15 @@
+{
+  "server": "http://drupalvm.dev/",
+  "sourcemaps": true,
+  "css": {
+    "src": "src/css",
+    "dest": "dist/css",
+    "paths": ["node_modules/susy/sass", "node_modules/breakpoint-sass/stylesheets", "node_modules/sass-easing", "node_modules/family.scss/source/src", "node_modules/typi/scss", "node_modules/normalize-scss/sass", "node_modules/megatype", "node_modules/smooth-scrollbar/dist", "node_modules/flickity/dist"],
+    "support": ["last 3 versions"]
+  },
+  "js": {
+    "src": "src/js",
+    "dest": "dist/js",
+    "paths": ["./node_modules", "./node_modules/barba.js/dist", "./node_modules/jquery/dist", "./src/js", "./node_modules/webfontloader", "./node_modules/scrollmagic/scrollmagic/minified", "./node_modules/scrollmagic/scrollmagic/uncompressed/plugins"]    
+  }
+}

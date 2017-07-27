@@ -1,0 +1,26 @@
+@mixin o-ratio($width:16, $height:9) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 0; 
+  padding-bottom: ($height / $width) * 100%;
+  
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;        
+  }
+}
+
+.o-ratio--16-9 {
+  @include o-ratio(16,9);  
+}
+
+.o-ratio--4-3 {
+  @include o-ratio(4,3);  
+}
+
+.o-ratio--16-10 {
+  @include o-ratio(16,10);  
+}
