@@ -1,3 +1,8 @@
 .node-readmore a {
   @include o-spread-link();
 }
+
+.field--name-field-image {
+  @include o-full-width();
+  background-color: red; 
+}
