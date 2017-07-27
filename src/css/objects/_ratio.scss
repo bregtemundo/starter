@@ -1,9 +1,19 @@
-@mixin o-ratio($width:16, $height:9) {
-  position: relative;
-  display: block;
+/**
+ * Force a certain aspect ratio on container, content will be positioned absolutely
+ * http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+ */
+
+@mixin o-ratio($width:16, $height:9) {     
+  position: relative;  
   overflow: hidden;
-  height: 0; 
-  padding-bottom: ($height / $width) * 100%;
+  
+
+  &:before {
+    display: block;
+    content: "";
+    height: 0; 
+    padding-bottom: ($height / $width) * 100%; 
+  }
   
 
   > * {
@@ -12,6 +22,9 @@
     left: 0;        
   }
 }
+
+
+// create default BEM classes using the mixins
 
 .o-ratio--16-9 {
   @include o-ratio(16,9);  
@@ -23,4 +36,8 @@
 
 .o-ratio--16-10 {
   @include o-ratio(16,10);  
+}
+
+.o-ratio--1-1 {
+  @include o-ratio(1,1);  
 }

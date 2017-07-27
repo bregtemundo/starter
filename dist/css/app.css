@@ -866,12 +866,18 @@ b, strong, .bold {
   margin-right: 0;
   margin-left: 2.60859%; }
 
+/**
+ * Force a certain aspect ratio on container, content will be positioned absolutely
+ * http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+ */
 .o-ratio--16-9 {
   position: relative;
-  display: block;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 56.25%; }
+  overflow: hidden; }
+  .o-ratio--16-9:before {
+    display: block;
+    content: "";
+    height: 0;
+    padding-bottom: 56.25%; }
   .o-ratio--16-9 > * {
     position: absolute;
     top: 0;
@@ -879,10 +885,12 @@ b, strong, .bold {
 
 .o-ratio--4-3 {
   position: relative;
-  display: block;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 75%; }
+  overflow: hidden; }
+  .o-ratio--4-3:before {
+    display: block;
+    content: "";
+    height: 0;
+    padding-bottom: 75%; }
   .o-ratio--4-3 > * {
     position: absolute;
     top: 0;
@@ -890,21 +898,38 @@ b, strong, .bold {
 
 .o-ratio--16-10 {
   position: relative;
-  display: block;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 62.5%; }
+  overflow: hidden; }
+  .o-ratio--16-10:before {
+    display: block;
+    content: "";
+    height: 0;
+    padding-bottom: 62.5%; }
   .o-ratio--16-10 > * {
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.o-ratio--1-1 {
+  position: relative;
+  overflow: hidden; }
+  .o-ratio--1-1:before {
+    display: block;
+    content: "";
+    height: 0;
+    padding-bottom: 100%; }
+  .o-ratio--1-1 > * {
     position: absolute;
     top: 0;
     left: 0; }
 
 .field--name-field-image {
   position: relative;
-  display: block;
-  overflow: hidden;
-  height: 0;
-  padding-bottom: 506.25%; }
+  overflow: hidden; }
+  .field--name-field-image:before {
+    display: block;
+    content: "";
+    height: 0;
+    padding-bottom: 56.25%; }
   .field--name-field-image > * {
     position: absolute;
     top: 0;
