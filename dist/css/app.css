@@ -185,6 +185,33 @@ http://flickity.metafizzy.co
  * - if baseline => output with the megatype library to keep fonts to baseline grid
  * - else we output font-size and line-height
  */
+@font-face {
+  font-family: "icons";
+  src: url("../../dist/img/icons/icons.eot");
+  src: url("../../dist/img/icons/icons.eot?#iefix") format("eot"), url("../../dist/img/icons/icons.woff2") format("woff2"), url("../../dist/img/icons/icons.woff") format("woff"), url("../../dist/img/icons/icons.ttf") format("truetype"), url("../../dist/img/icons/icons.svg#icons") format("svg"); }
+
+.icon-facebook:before, .icon-instagram:before, .icon-linkedin:before, .icon-twitter:before, .node-readmore a:after {
+  font-family: "icons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none; }
+
+.icon-facebook:before {
+  content: ""; }
+
+.icon-instagram:before {
+  content: ""; }
+
+.icon-linkedin:before {
+  content: ""; }
+
+.icon-twitter:before {
+  content: ""; }
+
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
 /* Document
        ========================================================================== */
@@ -592,6 +619,28 @@ template {
 [hidden] {
   display: none; }
 
+.sprite, .node-readmore a {
+  font-size: 10px; }
+  .sprite:before, .node-readmore a:before {
+    content: ' ';
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url("../../dist/img/sprite/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 61.2em 76.8em; }
+    .no-svg .sprite:before, .no-svg .node-readmore a:before, .node-readmore .no-svg a:before {
+      background-image: url("../sprite.png"); }
+
+.sprite.facebook:before, .node-readmore a.facebook:before {
+  background-position: 0em 0em;
+  width: 15.513900000000001em;
+  height: 15.513900000000001em; }
+
+.sprite.twitter:before, .node-readmore a:before {
+  background-position: 0em -15.6em;
+  width: 61.2em;
+  height: 61.2em; }
+
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, label, legend, caption, figcaption {
   margin: 0;
   padding: 0; }
@@ -951,19 +1000,11 @@ b, strong, .bold {
   z-index: 1;
   border: 5px solid red; }
 
-.node-readmore a {
-  background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 0;
-  text-indent: -999em;
-  overflow: hidden;
-  z-index: 1;
-  border: 5px solid red; }
+.node-readmore a:after {
+  content: ""; }
+
+.node-readmore a:before {
+  color: green; }
 
 .field--name-field-image {
   width: 100vw;

@@ -1,0 +1,46 @@
+.sprite {
+    font-size: 10px;
+    &:before {
+      content:' ';
+      vertical-align:middle;
+      display: inline-block;
+      background-image: url("../../dist/img/sprite/sprite.svg");
+      background-repeat: no-repeat;
+      background-size: 61.2em 76.8em;
+
+      .no-svg & {
+        background-image: url("../sprite.png");
+      }
+    }
+}
+
+
+
+
+.sprite.facebook {
+  &:before {
+      background-position: 0em 0em;
+      width: 15.513900000000001em;
+      height: 15.513900000000001em;
+    }
+  }
+
+  @mixin sprite-facebook(){
+    @extend .facebook;
+  }
+
+
+.sprite.twitter {
+  &:before {
+      background-position: 0em -15.6em;
+      width: 61.2em;
+      height: 61.2em;
+    }
+  }
+
+  @mixin sprite-twitter(){
+    @extend .twitter;
+  }
+
+
+

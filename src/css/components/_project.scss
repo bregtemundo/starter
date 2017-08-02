@@ -1,5 +1,16 @@
 .node-readmore a {
-  @include o-spread-link();
+  //@include o-spread-link();
+  @include icon(instagram, after);
+  &:before {
+    color: color(ok); 
+  }
+
+  @include sprite(twitter);
+
+  // @extend .sprite;
+
+  // @include sprite-facebook(); 
+  
 }
 
 .field--name-field-image {

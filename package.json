@@ -8,6 +8,9 @@
     "family.scss": "^1.0.8",
     "flickity": "^2.0.9",
     "gsap": "^1.20.2",
+    "gulp-iconfont": "^9.0.0",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-svg-sprites": "^4.1.2",
     "jquery": "^3.2.1",
     "scrollmagic": "^2.0.5",
     "smooth-scrollbar": "^7.3.1"

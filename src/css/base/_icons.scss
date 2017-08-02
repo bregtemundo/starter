@@ -1,0 +1,68 @@
+@font-face {
+	font-family: "icons";
+	src: url('../../dist/img/icons/icons.eot');
+	src: url('../../dist/img/icons/icons.eot?#iefix') format('eot'),
+		url('../../dist/img/icons/icons.woff2') format('woff2'),
+		url('../../dist/img/icons/icons.woff') format('woff'),
+		url('../../dist/img/icons/icons.ttf') format('truetype'),
+		url('../../dist/img/icons/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == facebook {
+		$char: "\E001";
+	}
+	@if $filename == instagram {
+		$char: "\E002";
+	}
+	@if $filename == linkedin {
+		$char: "\E003";
+	}
+	@if $filename == twitter {
+		$char: "\E004";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-facebook {
+	@include icon(facebook);
+}
+.icon-instagram {
+	@include icon(instagram);
+}
+.icon-linkedin {
+	@include icon(linkedin);
+}
+.icon-twitter {
+	@include icon(twitter);
+}

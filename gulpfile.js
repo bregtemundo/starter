@@ -21,6 +21,9 @@ minify , squeze those pngs, svg sprites?
  const plugins = require('gulp-load-plugins')();
  const browserSync = require('browser-sync');
  const beep = require('beepbeep');
+ const svgSprite = require("gulp-svg-sprites");
+ const iconfont = require('gulp-iconfont');
+ const iconfontCss = require('gulp-iconfont-css');
 
 
  const config = require('./gulp-config.json');
@@ -70,6 +73,43 @@ gulp.task("browserify", function () {
 
 });
 
+// create an svg spritesheet from svg files
+gulp.task('sprite', function () {
+    return gulp.src(config.sprite.src + '/*.svg', {base: './'})
+      .pipe(svgSprite({
+        //mode: "symbols",
+        templates: { scss: true },
+        selector: "%f",
+        svgPath: '../../' + config.sprite.dest + '/%f',
+        cssFile: '../../../' + config.css.src + '/base/_sprite.scss',
+        preview: false,
+        common: 'sprite',
+        svg: {
+          sprite: 'sprite.svg'
+        }
+      }))
+      .pipe(gulp.dest(config.sprite.dest));
+});
+
+// create an iconfont and scss from svg files
+gulp.task('icons', function(){
+  fontName = "icons"
+  gulp.src([config.icons.src + '/*.svg'], {base: './'})
+    .pipe(iconfontCss({
+      fontName: fontName,
+      path: 'scss',
+      targetPath: '../../../' + config.css.src + '/base/_icons.scss',
+      fontPath: '../../' + config.icons.dest + '/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName,
+      formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
+      normalize: true,
+      fontHeight: 1001
+     }))
+    .pipe(gulp.dest(config.icons.dest));
+});
+
 // get files ready for production
 gulp.task('minify', function() {
   // minify css
@@ -99,6 +139,12 @@ gulp.task('watch', function() {
 
   // watch js updates
   gulp.watch(config.js.src + '/**/*.js', ['browserify']);
+
+  // watch icons updates
+  gulp.watch(config.icons.src + '/**/*.svg', ['icons']);
+
+  // watch sprite updates
+  gulp.watch(config.sprite.src + '/**/*.svg', ['sprite']);
    
 });
 

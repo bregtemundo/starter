@@ -11,5 +11,13 @@
     "src": "src/js",
     "dest": "dist/js",
     "paths": ["./node_modules", "./node_modules/barba.js/dist", "./node_modules/jquery/dist", "./src/js", "./node_modules/webfontloader", "./node_modules/scrollmagic/scrollmagic/minified", "./node_modules/scrollmagic/scrollmagic/uncompressed/plugins"]    
+  },
+  "sprite": {
+    "src": "src/img/sprite",
+    "dest": "dist/img/sprite" 
+  },
+  "icons": {
+    "src": "src/img/icons",
+    "dest": "dist/img/icons" 
   }
 }
