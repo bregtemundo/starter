@@ -180,6 +180,12 @@ http://flickity.metafizzy.co
   opacity: 1; }
 
 /*
+ * use as @include sprite(twitter);
+ * shows the correct part of the sprite as background image in the before pseudo element
+ * can't change color this way
+ * scale by font-size, to get the original size use 10px
+ */
+/*
  * Mixin for setting type size
  * Output depends on $baseline variable
  * - if baseline => output with the megatype library to keep fonts to baseline grid
@@ -807,7 +813,7 @@ h6, .h6, .zeta {
 b, strong, .bold {
   font-weight: 700; }
 
-.layout-container p {
+.text-formatted p {
   -webkit-font-feature-settings: 'kern', 'onum', 'liga';
   font-feature-settings: 'kern', 'onum', 'liga';
   font-size: 2rem;
@@ -816,54 +822,54 @@ b, strong, .bold {
   top: 0.89375rem;
   margin-bottom: 2rem; }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .layout-container p {
+    .text-formatted p {
       line-height: 3rem; } }
   @media (min-width: 1325px) {
-    .layout-container p {
+    .text-formatted p {
       font-size: 2.25rem;
       line-height: 1.33333;
       position: relative;
       top: 1.80625rem;
       margin-bottom: 3rem; } }
   @media screen and (min-width: 1325px) and (-webkit-min-device-pixel-ratio: 0) {
-    .layout-container p {
+    .text-formatted p {
       line-height: 3rem; } }
 
-.layout-container ul:not(.tabs) {
+.text-formatted ul:not(.tabs) {
   font-size: 2rem;
   line-height: 1.5;
   position: relative;
   top: 1.89375rem;
   margin-bottom: 3rem; }
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .layout-container ul:not(.tabs) {
+    .text-formatted ul:not(.tabs) {
       line-height: 3rem; } }
   @media (min-width: 1325px) {
-    .layout-container ul:not(.tabs) {
+    .text-formatted ul:not(.tabs) {
       font-size: 2.25rem;
       line-height: 1.33333;
       position: relative;
       top: 2.80625rem;
       margin-bottom: 4rem; } }
   @media screen and (min-width: 1325px) and (-webkit-min-device-pixel-ratio: 0) {
-    .layout-container ul:not(.tabs) {
+    .text-formatted ul:not(.tabs) {
       line-height: 3rem; } }
-  .layout-container ul:not(.tabs) li {
+  .text-formatted ul:not(.tabs) li {
     -webkit-font-feature-settings: 'kern', 'onum', 'liga';
     font-feature-settings: 'kern', 'onum', 'liga';
     margin-left: 2rem; }
-    .layout-container ul:not(.tabs) li ol, .layout-container ul:not(.tabs) li ul {
+    .text-formatted ul:not(.tabs) li ol, .text-formatted ul:not(.tabs) li ul {
       padding-top: 1rem;
       margin-bottom: 1rem;
       margin-left: 2rem; }
 
-.layout-container ul:not(.tabs) {
+.text-formatted ul:not(.tabs) {
   list-style: none; }
-  .layout-container ul:not(.tabs) li {
+  .text-formatted ul:not(.tabs) li {
     padding-left: 1em;
     text-indent: -.7em;
     margin-left: 0; }
-  .layout-container ul:not(.tabs) li:before {
+  .text-formatted ul:not(.tabs) li:before {
     content: "■ ";
     color: #111; }
 
@@ -882,6 +888,8 @@ b, strong, .bold {
 
 /**
  * break out of the container and put block full width of the screen: 
+ *
+ * 1. this does create a horizontal scrollbar, can be counter acted by using overflow-x on body
  */
 .o-full-width {
   width: 100vw;
@@ -890,6 +898,45 @@ b, strong, .bold {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw; }
+
+/*
+ * show a list without the default margins and bullets
+ */
+.o-list-bare {
+  margin-left: 0;
+  list-style: none; }
+
+.o-list-bare__item {
+  margin-left: 0; }
+
+/*
+ * show a list as horizontal
+ */
+.o-list-inline {
+  margin-left: 0;
+  list-style: none; }
+
+.o-list-inline__item {
+  display: inline-block; }
+
+/*
+ * show a list as horizontal and justify the items
+ *
+ * 1. use space-around if you also want margin to left of first item and to right of last item 
+ */
+.o-list-justify {
+  margin-left: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  /* [1] */ }
+
+.o-list-justify__item {
+  display: inline-block; }
 
 /* ==========================================================================
    #MEDIA
@@ -1014,6 +1061,15 @@ b, strong, .bold {
   margin-left: -50vw;
   margin-right: -50vw;
   background-color: red; }
+
+.menu {
+  margin-left: 0;
+  list-style: none;
+  background: pink; }
+
+.menu-item {
+  margin-left: 0;
+  border: 1px solid; }
 
 body {
   width: 100%;

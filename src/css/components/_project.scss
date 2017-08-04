@@ -17,3 +17,13 @@
   @include o-full-width();
   background-color: red; 
 }
+
+.menu {
+  @include o-list-bare();
+  background: pink; 
+}
+
+.menu-item {
+  @include o-list-bare__item();
+  border: 1px solid ;
+}
