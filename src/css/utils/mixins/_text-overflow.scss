@@ -1,0 +1,10 @@
+/*
+ * shows ... after single line text
+ * Requires display inline-block or block to work, also needs a width to overflow
+ */
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

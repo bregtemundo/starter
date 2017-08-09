@@ -193,6 +193,10 @@ http://flickity.metafizzy.co
  * scale by font-size, to get the original size use 10px
  */
 /*
+ * shows ... after single line text
+ * Requires display inline-block or block to work, also needs a width to overflow
+ */
+/*
  * Mixin for setting type size
  * Output depends on $baseline variable
  * - if baseline => output with the megatype library to keep fonts to baseline grid
@@ -1102,6 +1106,12 @@ b, strong, .bold {
   .feed-icon:before {
     font-size: 3.125rem;
     color: #333; }
+
+.block-system-powered-by-block {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 body {
   width: 100%;

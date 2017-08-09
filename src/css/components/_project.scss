@@ -45,3 +45,7 @@
     color: color(body);
   }
 }
+
+.block-system-powered-by-block {
+  @include text-overflow();
+}
