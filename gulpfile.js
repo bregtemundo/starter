@@ -67,7 +67,7 @@ gulp.task("browserify", function () {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.init({loadMaps: true})) )
-    .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.write('/maps')) )
+    .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.write('/maps', {includeContent: false, sourceRoot: '/'})) )
     .pipe(plugins.plumber.stop())
     .pipe(gulp.dest(config.js.dest));  
 
