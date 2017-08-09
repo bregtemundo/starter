@@ -1,0 +1,5 @@
+::selection {
+    background: color(selection);
+    color: color-contrast(color(selection), color(body));
+    text-shadow: none; 
+}

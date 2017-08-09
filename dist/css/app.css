@@ -636,6 +636,16 @@ template {
 [hidden] {
   display: none; }
 
+::-moz-selection {
+  background: #4682b4;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #4682b4;
+  color: #fff;
+  text-shadow: none; }
+
 .sprite, .node-readmore a {
   font-size: 10px; }
   .sprite:before, .node-readmore a:before {
