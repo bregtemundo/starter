@@ -27,3 +27,12 @@
   @include o-list-bare__item();
   border: 1px solid ;
 }
+
+.tabs {
+  @include o-list-inline();
+  @include clearfix();
+}
+
+.tabs li {
+  @include o-list-inline__item();
+}
