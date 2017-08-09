@@ -179,6 +179,13 @@ http://flickity.metafizzy.co
 .flickity-page-dots .dot.is-selected {
   opacity: 1; }
 
+/**
+ * mixin to hide text , used for eg image replacement
+ * Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+ *
+ * 1. some browsers (eg safari) can't set fontsize to 0, we need to make transparent in this case
+ * 2. Keep in mind when using a font-icon or sprite in pseudo elements the font-size and color must be reset to show them
+ */
 /*
  * use as @include sprite(twitter);
  * shows the correct part of the sprite as background image in the before pseudo element
@@ -196,7 +203,7 @@ http://flickity.metafizzy.co
   src: url("../../dist/img/icons/icons.eot");
   src: url("../../dist/img/icons/icons.eot?#iefix") format("eot"), url("../../dist/img/icons/icons.woff2") format("woff2"), url("../../dist/img/icons/icons.woff") format("woff"), url("../../dist/img/icons/icons.ttf") format("truetype"), url("../../dist/img/icons/icons.svg#icons") format("svg"); }
 
-.icon-facebook:before, .icon-instagram:before, .icon-linkedin:before, .icon-twitter:before, .node-readmore a:after {
+.icon-facebook:before, .icon-instagram:before, .icon-linkedin:before, .icon-twitter:before, .node-readmore a:after, .feed-icon:before {
   font-family: "icons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1081,6 +1088,20 @@ b, strong, .bold {
 
 .tabs li {
   display: inline-block; }
+
+.feed-icon {
+  font: 0/0 a;
+  /* [2] */
+  color: transparent;
+  /* [1] */
+  text-shadow: none;
+  background-color: transparent;
+  border: 0; }
+  .feed-icon:before {
+    content: ""; }
+  .feed-icon:before {
+    font-size: 3.125rem;
+    color: #333; }
 
 body {
   width: 100%;

@@ -1,0 +1,15 @@
+/**
+ * mixin to hide text , used for eg image replacement
+ * Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+ *
+ * 1. some browsers (eg safari) can't set fontsize to 0, we need to make transparent in this case
+ * 2. Keep in mind when using a font-icon or sprite in pseudo elements the font-size and color must be reset to show them
+ */
+
+@mixin hide-text() {
+  font: 0/0 a; /* [2] */
+  color: transparent; /* [1] */
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}

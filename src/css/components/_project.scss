@@ -9,7 +9,7 @@
 
   // @extend .sprite;
 
-  // @include sprite-facebook(); 
+  // @include sprite-facebook();   
   
 }
 
@@ -35,4 +35,13 @@
 
 .tabs li {
   @include o-list-inline__item();
+}
+
+.feed-icon {
+  @include hide-text(); 
+  @include icon(instagram);
+  &:before {
+    font-size: rem(25px);
+    color: color(body);
+  }
 }
