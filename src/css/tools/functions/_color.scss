@@ -1,6 +1,13 @@
 // get color from $colors map
-@function get-color($key) {  
-  @return map-get($colors, $key);
+@function get-color($key) {
+  $mapped-color: map-get($colors, $key);
+
+  //not a key for the map, maybe hex color
+  @if $mapped-color == null {
+    @return $key;
+  }
+
+  @return $mapped-color;
 }
 
 // alternative name for get-color
@@ -14,11 +21,11 @@
     @return null;
   }
   @else {
-    $color-brightness: brightness($color);  
+    $color-brightness: brightness($color);
     $light-text-brightness: brightness($light);
     $dark-text-brightness: brightness($dark);
-    
-    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);  
+
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
   }
 }
 
