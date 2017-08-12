@@ -109,13 +109,13 @@
  * Tables
  */
 table {
-  // @include o-table;
+  @include o-table;
   // @include o-table-bordered;
   // @include o-table-striped;
 }
 
 td, th {
-  // @include o-table__cell;
+  @include o-table__cell;
   // @include o-table-bordered__cell;
   // @include o-table-striped__cell;
 }
