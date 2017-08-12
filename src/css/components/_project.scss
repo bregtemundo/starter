@@ -2,25 +2,25 @@
   //@include o-spread-link();
   @include icon(instagram, after);
   &:before {
-    color: color(ok); 
+    color: color(ok);
   }
 
   @include sprite(twitter);
 
   // @extend .sprite;
 
-  // @include sprite-facebook();   
-  
+  // @include sprite-facebook();
+
 }
 
 .field--name-field-image {
   @include o-full-width();
-  background-color: red; 
+  background-color: red;
 }
 
 .menu {
   @include o-list-bare();
-  background: pink; 
+  background: pink;
 }
 
 .menu-item {
@@ -38,7 +38,7 @@
 }
 
 .feed-icon {
-  @include hide-text(); 
+  @include hide-text();
   @include icon(instagram);
   &:before {
     font-size: rem(25px);
@@ -48,4 +48,58 @@
 
 .block-system-powered-by-block {
   @include text-overflow();
+}
+
+/*
+ * Drupal FORM
+ */
+// default form
+.contact-form .form-item {
+  @include o-form-item;
+}
+
+.contact-form label,
+.contact-form legend {
+  @include o-form-item__label;
+  display: inline-block;
+  width: 200px;
+}
+
+.contact-form input:not([type=checkbox]):not([type=radio]),
+.contact-form textarea,
+.contact-form select {
+  @include o-form-item__input;
+}
+
+// textarea has a wrapper around it
+.contact-form .form-textarea-wrapper {
+  display: inline-block;
+  vertical-align: top;
+}
+
+// transform fieldset to mimic regular form item
+.contact-form legend {
+  float: left;
+  padding-top: vr($form-item-input-padding);
+  margin-right: 4px;
+}
+.contact-form .fieldset-wrapper {
+  display: inline-block;
+}
+
+// inline parts of form (form items next to each other
+.form-actions, .container-inline {
+  .form-item {
+    @include o-form-item-inline;
+  }
+
+  label {
+    @include o-form-item-inline__label;
+  }
+
+  input:not([type=checkbox]):not([type=radio]),
+  textarea,
+  select {
+    @include o-form-item-inline__input;
+  }
 }

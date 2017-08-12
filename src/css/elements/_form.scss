@@ -1,0 +1,80 @@
+input,
+select,
+textarea {
+  outline: none;
+  line-height: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-color: color(border);
+
+  &:focus {
+    outline: none;
+  }
+  &:invalid,
+  &:-moz-ui-invalid {
+    box-shadow: none;
+    color: color(error);
+    border-color: color(error);
+  }
+  &:disabled {
+    background-color: inherit;
+    opacity: .5;
+  }
+}
+
+// hide drag icon
+textarea {
+  resize: none !important;
+}
+
+// show fieldset as regular label (legend) and input (fieldset-wrapper) layout
+fieldset {
+  padding: 0;
+  margin-left: 0;
+  border-width: 0;
+}
+
+
+/**
+ * styled Checkboxes and radiobuttons
+ */
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+input[type=checkbox] + label,
+input[type=radio] + label {
+  display: inline-block !important;
+  cursor: pointer;
+}
+input[type=checkbox]:checked + label:before {
+  background-image: svg-url('<?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 10.5 8.1" style="enable-background:new 0 0 10.5 8.1;" xml:space="preserve"><style type="text/css">.st0{fill:' + color(body) + '}</style><polygon class="st0" points="4.1,8.1 0,4.1 1.6,2.4 4.1,4.9 8.9,0 10.5,1.6 "/></svg>');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 90%;
+}
+input[type=radio]:checked + label:before {
+  background-image: svg-url('<?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 10 10" style="enable-background:new 0 0 10 10;" xml:space="preserve"><style type="text/css">.st0{fill:' + color(body) + '}</style><circle class="st0" r="5" cx="5" cy="5" /></svg>');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 75%;
+}
+input[type=checkbox] + label:before,
+input[type=radio] + label:before {
+  content: " ";
+  display: inline-block;
+  height: rem(15px);
+  width: rem(15px);
+  border: 1px solid color(border);
+  margin-right: .75em;
+  box-sizing: border-box;
+}
+
+input[type=radio] + label:before {
+  border-radius: 100%;
+}
+
+input[type=checkbox][disabled] + label,
+input[type=radio][disabled] + label {
+  opacity: .5;
+}

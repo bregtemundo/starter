@@ -4,20 +4,20 @@ $debug: false;
 
 // breakpoint-sass (use respond-to)
 @include add-breakpoint(xs, 321px);
-@include add-breakpoint(sm, 600px); 
-@include add-breakpoint(md, 1020px); 
+@include add-breakpoint(sm, 600px);
+@include add-breakpoint(md, 1020px);
 @include add-breakpoint(lg, 1325px);
 
 // use baseline grid for typo or not
 $type-type: 'baseline'; // font-size, line-height, baseline: where to measure leader and trailer space from
 $baseline-grid: true; //if true $type-type is baseline
-$vertical-padding: 20px; 
+$vertical-padding: 20px;
 
 
 // set font faces
 $fontfaces: (
   'body': (
-    font-family: '"Helvetica Neue", Arial, sans-serif',    
+    font-family: '"Helvetica Neue", Arial, sans-serif',
     cap-height: 0.70,
     cap-position: 0.5,
     weights: (
@@ -27,7 +27,7 @@ $fontfaces: (
     )
   ),
   'title': (
-    font-family: 'Roboto, Arial, sans-serif',    
+    font-family: 'Roboto, Arial, sans-serif',
     cap-height: 0.70,
     cap-position: 0.5,
     weights: (
@@ -36,46 +36,46 @@ $fontfaces: (
       medium: 500,
       bold: 700
     )
-  )  
+  )
 );
 
 
 $fontsizes: (
   base: (
-    null: (16px, 1.58),    
+    null: (16px, 1.58),
     lg: (18px)
   ),
   h1: (
-    null: (40px, 1.54),   
+    null: (40px, 1.54),
     lg: (100px, 1)
   ),
   h2: (
-    null: (32px, 1.15),    
+    null: (32px, 1.15),
   ),
   h3: (
-    null: (32px),    
+    null: (32px),
   ),
   h4: (
-    null: (30px),    
+    null: (30px),
   ),
   h5: (
-    null: (27px),    
+    null: (27px),
   ),
   h6: (
-    null: (25px),    
-  )               
+    null: (25px),
+  )
 );
 
 // set a rootsize for each breakpoint (globally enlarge/smaller fonts, without setting $fontsizes for each breakpoint)
 $breakpoint-map: (
   0: (
-    start:      0px,        
+    start:      0px,
     rootsize:   8px, // baseline size
     gutter:     10px
   ),
   1: (
     start:      map-get($BREAKPOINTS, 'xs'),
-    rootsize:   8px, 
+    rootsize:   8px,
     gutter:     10px
   ),
   2: (
@@ -102,7 +102,7 @@ $susy: (
 
   container: $susy-max-width, //set max-width
   container-position: center,
-  
+
   debug: (
     image: if($debug, 'show', 'hide'),
     color: rgba(0,0,255, 0.3),
@@ -118,8 +118,9 @@ $colors: (
   primary:    #111,
   secundary:  #222,
   disabled:   #ccc,
+  border:     #999,
   selection:  #4682b4,
   ok:         green,
   warning:    orange,
-  error:      red  
+  error:      red
 )

@@ -180,6 +180,12 @@ http://flickity.metafizzy.co
   opacity: 1; }
 
 /**
+ * Function to replace characters in a string
+ */
+/**
+ * Function to create an optimized svg url from svg code
+ */
+/**
  * mixin to hide text , used for eg image replacement
  * Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
  *
@@ -668,6 +674,82 @@ template {
   width: 61.2em;
   height: 61.2em; }
 
+input,
+select,
+textarea {
+  outline: none;
+  line-height: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #999; }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none; }
+  input:invalid, input:-moz-ui-invalid,
+  select:invalid,
+  select:-moz-ui-invalid,
+  textarea:invalid,
+  textarea:-moz-ui-invalid {
+    box-shadow: none;
+    color: red;
+    border-color: red; }
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    background-color: inherit;
+    opacity: .5; }
+
+textarea {
+  resize: none !important; }
+
+fieldset {
+  padding: 0;
+  margin-left: 0;
+  border-width: 0; }
+
+/**
+ * styled Checkboxes and radiobuttons
+ */
+input[type=checkbox],
+input[type=radio] {
+  display: none; }
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+  display: inline-block !important;
+  cursor: pointer; }
+
+input[type=checkbox]:checked + label:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Laag_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2010.5%208.1%22%20style%3D%22enable-background%3Anew%200%200%2010.5%208.1;%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.st0{fill%3A%23333}%3C%2Fstyle%3E%3Cpolygon%20class%3D%22st0%22%20points%3D%224.1,8.1%200,4.1%201.6,2.4%204.1,4.9%208.9,0%2010.5,1.6%20%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 90%; }
+
+input[type=radio]:checked + label:before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3Csvg%20version%3D%221.1%22%20id%3D%22Laag_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2010%2010%22%20style%3D%22enable-background%3Anew%200%200%2010%2010;%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E.st0{fill%3A%23333}%3C%2Fstyle%3E%3Ccircle%20class%3D%22st0%22%20r%3D%225%22%20cx%3D%225%22%20cy%3D%225%22%20%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 75%; }
+
+input[type=checkbox] + label:before,
+input[type=radio] + label:before {
+  content: " ";
+  display: inline-block;
+  height: 1.875rem;
+  width: 1.875rem;
+  border: 1px solid #999;
+  margin-right: .75em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input[type=radio] + label:before {
+  border-radius: 100%; }
+
+input[type=checkbox][disabled] + label,
+input[type=radio][disabled] + label {
+  opacity: .5; }
+
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, label, legend, caption, figcaption {
   margin: 0;
   padding: 0; }
@@ -907,6 +989,42 @@ b, strong, .bold {
     .o-site-container {
       margin: 0 auto; } }
 
+/*
+ * show a vertical form (label left and input right) with margin below each item
+ */
+.o-form-item {
+  margin-bottom: 2rem; }
+
+.o-form-item__input {
+  padding: 1rem; }
+
+/*
+ * show a form item where the input is below the label
+ */
+.o-form-item-stacked {
+  margin-bottom: 2rem; }
+
+.o-form-item-stacked__label {
+  display: block; }
+
+.o-form-item-stacked__input {
+  display: block;
+  padding: 1rem; }
+
+/*
+ * show a form item where the inputs and labels are next to each other
+ */
+.o-form-item-inline {
+  display: inline-block;
+  margin-bottom: 0; }
+
+.o-form-item-inline__label {
+  display: inline-block; }
+
+.o-form-item-inline__input {
+  display: inline-block;
+  padding: 1rem; }
+
 /**
  * break out of the container and put block full width of the screen: 
  *
@@ -1122,6 +1240,49 @@ b, strong, .bold {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap; }
+
+/*
+ * Drupal FORM
+ */
+.contact-form .form-item {
+  margin-bottom: 2rem; }
+
+.contact-form label,
+.contact-form legend {
+  display: inline-block;
+  width: 200px; }
+
+.contact-form input:not([type=checkbox]):not([type=radio]),
+.contact-form textarea,
+.contact-form select {
+  padding: 1rem; }
+
+.contact-form .form-textarea-wrapper {
+  display: inline-block;
+  vertical-align: top; }
+
+.contact-form legend {
+  float: left;
+  padding-top: 1rem;
+  margin-right: 4px; }
+
+.contact-form .fieldset-wrapper {
+  display: inline-block; }
+
+.form-actions .form-item, .container-inline .form-item {
+  display: inline-block;
+  margin-bottom: 0; }
+
+.form-actions label, .container-inline label {
+  display: inline-block; }
+
+.form-actions input:not([type=checkbox]):not([type=radio]),
+.form-actions textarea,
+.form-actions select, .container-inline input:not([type=checkbox]):not([type=radio]),
+.container-inline textarea,
+.container-inline select {
+  display: inline-block;
+  padding: 1rem; }
 
 body {
   width: 100%;
