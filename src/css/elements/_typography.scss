@@ -1,9 +1,9 @@
 @include type-init;
- 
+
 
 // overwrite root font-size: scaling font when large screen
 /*
-html {    
+html {
   @include respond-to(lg) {
     font-size: 8 / 1325 * 100vw;
   }
@@ -11,12 +11,12 @@ html {
 */
 
 // set default type and font-size, color
-.layout-container {
+body {
   @include ff('body');
   color: color(body);
-  @include type('base', 0, 0, 'body');  
+  @include type('base', 0, 0, 'body');
 }
- 
+
 p {
   @include vr(margin-top, 1);
 }
@@ -26,7 +26,7 @@ h1 {
   //@include type((12px, 10.5), 2, 2);
   //@include type((22px, 1.3), 1, 3);
   //@include type(18px, 2, 2);
-  @include type('h1', 2, 2, 'title');  
+  @include type('h1', 2, 2, 'title');
   @include fw('title', 'light')
 }
 
@@ -34,7 +34,7 @@ h1 {
 //general styles
 
 // input
-input, textarea, select {  
+input, textarea, select {
   @include ff(body);
   @include fw(body, normal)
 }
@@ -43,14 +43,14 @@ input, textarea, select {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-feature-settings: 'dlig', 'liga', 'lnum', 'kern';
-  
+
   @include ff(title);
   @include fw(title, bold);
 }
 
 // Heading level 1.
 h1, .h1, .alpha {
-  @include type(h1, 3,  2, title);  
+  @include type(h1, 3,  2, title);
 }
 
 // Heading level 2.
@@ -124,4 +124,3 @@ b, strong, .bold {
   }
 }
 
-  
