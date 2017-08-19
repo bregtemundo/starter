@@ -5,7 +5,7 @@
     color: color(ok);
   }
 
-  @include sprite(twitter);
+  // @include sprite(twitter);
 
   // @extend .sprite;
 
@@ -20,12 +20,10 @@
 
 .menu {
   @include o-list-bare();
-  background: pink;
 }
 
 .menu-item {
   @include o-list-bare__item();
-  border: 1px solid ;
 }
 
 .tabs {

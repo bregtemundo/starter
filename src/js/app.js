@@ -1,8 +1,9 @@
 import TransitionManager from 'transitions/TransitionManager';
-import $ from "jquery.slim.min.js";
+import $ from "jquery";
 import { $document, $html, $body, isDebug } from 'utils/environment';
 import Scrollbar from 'smooth-scrollbar';
 
+import Navigation from './modules/Navigation'
 import Example from './modules/Example';
 
 class App {
@@ -19,6 +20,9 @@ class App {
 
     // smooth scrolling
     this._startScroll();
+
+    // mobile navigation
+    this._startNavigation();
   }
 
   _createModules(){
@@ -29,7 +33,7 @@ class App {
     var WebFont = require('webfontloader');
     WebFont.load({
       google: {
-        families: ['Roboto:300,400,500,700'] 
+        families: ['Roboto:300,400,500,700']
       }
     });
   }
@@ -38,21 +42,25 @@ class App {
     const transitionManager = new TransitionManager();
   }
 
-  _startScroll() {       
-    this.scrollbar = Scrollbar.init($body[0]);    
+  _startScroll() {
+    this.scrollbar = Scrollbar.init($body[0]);
   }
-  
+
+  _startNavigation() {
+    this.navigation = new Navigation();
+  }
+
 }
 
 
 // IIFE for loading the application
 // ==========================================================================
 (function() {
-  new App();  
-  
+  new App();
+
   $document.trigger({
       type: 'initModules',
-      firstBlood: true 
+      firstBlood: true
   });
-  
+
 })();

@@ -1,0 +1,149 @@
+/*
+ * import of mmenu sass
+ * Either import jquery.menu.all
+ * Or pick and chose needed extensions
+ */
+// @import "jquery.mmenu.all";
+@import "scss/import";
+// @import "core/oncanvas/jquery.mmenu.oncanvas";
+@import "core/oncanvas/menu";
+// @import "core/oncanvas/vertical";
+// @import "core/oncanvas/listviews";
+@import "core/offcanvas/jquery.mmenu.offcanvas";
+@import "core/screenreader/jquery.mmenu.screenreader";
+
+@import "extensions/positioning/jquery.mmenu.positioning";
+@import "extensions/pagedim/jquery.mmenu.pagedim";
+// @import "extensions/effects/jquery.mmenu.effects";
+@import "extensions/fullscreen/jquery.mmenu.fullscreen";
+
+
+/*
+ * mmenu
+ */
+.mm-menu {
+  background-color: color(body);
+  color: color(disabled);
+}
+
+.mm-navbar {
+  display: none;
+}
+
+// button to open submenu (overlayed menu item
+.mm-next {
+  background: rgba( 3, 2, 1, 0 );
+  width: 100%;
+  height: 1em;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  @include icon(down-arrow, after);
+  &:after {
+    float: right
+  }
+}
+.mm-vertical {
+  position: relative;
+}
+
+/*
+ * faded background
+ *
+ * 1. mmenu styles with id
+ * 2. the transparency of the cover layer, mmenu use higly specific selector
+ */
+.mm-slideout {
+  background-color: color(white) !important; /* [1] */
+}
+
+.mm-opening .mm-slideout {
+ opacity: .9 !important; /* [2] */
+}
+
+/*
+ * open/ close button
+ *
+ * 1. the mmenu has z-index 2
+ */
+.c-mmenu__toggle {
+  z-index: 3; /* [1] */
+  position: fixed;
+  right: gutter();
+  top: gutter();
+  @include icon(hamburger, after);
+  text-decoration: none;
+}
+
+.c-mmenu__toggle--close {
+  @include icon(close, after);
+  color: color(disabled);
+}
+
+
+/*
+ * Transitions
+ *
+ 1. transition is set to slide in (hardcoded) in positioning
+*/
+.mm-menu {
+  // hide the menu
+  display: none;
+  transform: none;
+  opacity: 0;
+  transition: transform .5s $easeOutCirc !important; /* [1] */
+}
+.mm-opened .mm-menu {
+  // show the menu
+  display: block;
+  //transform: translate3d( -100%, 0, 0 );
+  opacity: 0;
+}
+.mm-opening .mm-menu {
+  // animate the menu
+  //transform: translate3d( 0, 0, 0 );
+  opacity: 1;
+}
+
+/*
+ *
+ */
+// .mm-menu .menu {
+//   margin: 0 auto;
+//   width: 50%;
+//   text-align: center;
+// }
+
+.mm-menu .menu-item {
+  // display: inline-block;
+  overflow: hidden;
+}
+
+/*
+ * Transitions individual items
+*/
+.mm-menu .menu-item a {
+  // hide the menu
+  display: inline-block;
+  transform: none;
+  transition: transform .4s $easeOutQuad;
+}
+
+@for $i from 1 to 10 {
+  .mm-menu .menu-item:nth-child(#{$i}) a { transition-delay: .2 + $i * 0.1s; }
+}
+
+.mm-opened .mm-menu .menu-item a {
+  // show the menu
+  display: block;
+  transform: translateY( 100% );
+}
+.mm-opening .mm-menu .menu-item a {
+  // animate the menu
+  transform: translateY( 0 );
+}
+
+
