@@ -1,14 +1,14 @@
 /*
 STYLES:
 modular font grid(typesettings/ sass line / typi / plumber-sass / ritmo),
-todo: 2 options , typi or megatype whan design is on baseline grid or not, 
+todo: 2 options , typi or megatype whan design is on baseline grid or not,
 then import different typography.scss
 
 IMAGES:
 minify , squeze those pngs, svg sprites?
 
  */
- 
+
  const gulp = require('gulp');
  const babelify = require('babelify');
  const browserify = require('browserify');
@@ -36,7 +36,7 @@ gulp.task('sass', function() {
     .pipe(sassGlob())
     .pipe(plugins.sass({
       includePaths: config.css.paths
-    }))      
+    }))
     .pipe(plugins.autoprefixer({
       browsers: config.css.support,
       cascade: false
@@ -53,23 +53,23 @@ gulp.task("browserify", function () {
     debug: true,
     paths: config.js.paths,
     transform: [
-      ["babelify", { 
-        "presets": ["es2015"], 
+      ["babelify", {
+        "presets": ["es2015"],
         "plugins": "transform-class-properties",
         "sourceMaps": config.sourcemaps
       }]
     ]
   };
 
-  browserify(props).bundle() 
+  browserify(props).bundle()
     .on('error', handleErrors)
-    .pipe(plugins.plumber({errorHandler: handleErrors}))     
+    .pipe(plugins.plumber({errorHandler: handleErrors}))
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.init({loadMaps: true})) )
     .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.write('/maps', {includeContent: false, sourceRoot: '/'})) )
     .pipe(plugins.plumber.stop())
-    .pipe(gulp.dest(config.js.dest));  
+    .pipe(gulp.dest(config.js.dest));
 
 });
 
@@ -81,7 +81,7 @@ gulp.task('sprite', function () {
         templates: { scss: true },
         selector: "%f",
         svgPath: '../../' + config.sprite.dest + '/%f',
-        cssFile: '../../../' + config.css.src + '/base/_sprite.scss',
+        cssFile: '../../../' + config.css.src + '/generic/_sprite.scss',
         preview: false,
         common: 'sprite',
         svg: {
@@ -98,7 +98,7 @@ gulp.task('icons', function(){
     .pipe(iconfontCss({
       fontName: fontName,
       path: 'scss',
-      targetPath: '../../../' + config.css.src + '/base/_icons.scss',
+      targetPath: '../../../' + config.css.src + '/generic/_icons.scss',
       fontPath: '../../' + config.icons.dest + '/'
     }))
     .pipe(iconfont({
@@ -113,24 +113,24 @@ gulp.task('icons', function(){
 // get files ready for production
 gulp.task('minify', function() {
   // minify css
-  gulp.src(config.css.dest + '/**/*.css')    
-    .pipe(plugins.cleanCss())    
+  gulp.src(config.css.dest + '/**/*.css')
+    .pipe(plugins.cleanCss())
     .pipe(gulp.dest(config.css.dest));
-  
+
   // minify js
   gulp.src(config.js.dest + '/**/*.js')
     .pipe(plugins.uglify())
     //.pipe(plugins.rename({ extname: '.min.js' }))
     .pipe(gulp.dest(config.js.dest));
-      
+
 });
 
 // start server and watch for filechanges
 gulp.task('watch', function() {
   // start up browsersync server
   browserSync({
-    proxy: config.server,         
-    //'server': './',  
+    proxy: config.server,
+    //'server': './',
     files: [config.css.dest + "/**/*.css", config.js.dest + "/**/*.js", "./**/*.{php,info}"]
   });
 
@@ -145,7 +145,7 @@ gulp.task('watch', function() {
 
   // watch sprite updates
   gulp.watch(config.sprite.src + '/**/*.svg', ['sprite']);
-   
+
 });
 
 // force set variables for production
@@ -167,7 +167,7 @@ function handleErrors(err) {
   beep();
 
   console.log(err.toString());
- 
+
   this.emit('end');
 }
 

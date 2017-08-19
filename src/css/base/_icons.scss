@@ -27,26 +27,20 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == close {
+	@if $filename == facebook {
 		$char: "\E001";
 	}
-	@if $filename == down-arrow {
+	@if $filename == hamburger {
 		$char: "\E002";
 	}
-	@if $filename == facebook {
+	@if $filename == instagram {
 		$char: "\E003";
 	}
-	@if $filename == hamburger {
+	@if $filename == linkedin {
 		$char: "\E004";
 	}
-	@if $filename == instagram {
-		$char: "\E005";
-	}
-	@if $filename == linkedin {
-		$char: "\E006";
-	}
 	@if $filename == twitter {
-		$char: "\E007";
+		$char: "\E005";
 	}
 
 	@return $char;
@@ -63,12 +57,6 @@
 	}
 }
 
-.icon-close {
-	@include icon(close);
-}
-.icon-down-arrow {
-	@include icon(down-arrow);
-}
 .icon-facebook {
 	@include icon(facebook);
 }
