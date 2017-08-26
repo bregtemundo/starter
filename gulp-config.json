@@ -1,5 +1,5 @@
 {
-  "server": "http://drupalvm.dev/",
+  "server": "drupal.docker.localhost:8000",
   "sourcemaps": true,
   "css": {
     "src": "src/css",
@@ -15,7 +15,8 @@
       "node_modules/smooth-scrollbar/dist",
       "node_modules/flickity/dist",
       "node_modules/jquery.mmenu/dist",
-      "node_modules/jquery.mmenu/src"
+      "node_modules/jquery.mmenu/src",
+      "node_modules/superfish/src/css"
     ],
     "support": [
       "last 3 versions"
@@ -33,7 +34,8 @@
       "./node_modules/scrollmagic/scrollmagic/minified",
       "./node_modules/scrollmagic/scrollmagic/uncompressed/plugins",
       "./node_modules/jquery.mmenu/dist",
-      "./node_modules/match-media"
+      "./node_modules/match-media",
+      "./node_modules/superfish/src/js"
     ]
   },
   "sprite": {

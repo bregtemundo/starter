@@ -6,6 +6,7 @@ import "jquery.mmenu";
 
 export default class Navigation {
   mobileMenu = null;
+  desktopMenu = null;
 
   constructor(options) {
 
@@ -71,7 +72,13 @@ export default class Navigation {
   }
 
   initDesktopNavigation(){
+    // superfish doesn't have an export
+    // make jquery object available global ,then import
+    window.jQuery = $;
+    require("superfish");
 
+    this.desktopMenu = $("#block-starter-main-menu > .menu").superfish();
+    this.desktopMenu.addClass('sf-menu');
   }
 
   destroy() {

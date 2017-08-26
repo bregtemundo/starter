@@ -1,0 +1,74 @@
+// @import "superfish";
+
+/*
+ * superfish css contains style
+ * copied "necessary styles"
+ * add own theme
+ */
+
+//  necessary styles
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li {
+	position: relative;
+}
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+.sf-menu > li {
+	float: left;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+	display: block;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+
+// custom theme
+.sf-menu ul {
+	min-width: 12em;
+}
+.sf-menu li {
+  display: block;
+	white-space: nowrap;
+}
+.sf-menu a {
+  display: block;
+	padding: .75em 1em;
+}
+
+.sf-menu > li:last-child > ul ul {
+  left: auto; // reset the default positioning
+  right: 100%; // this makes the submenu fly out to the left
+}
+
+// custom animation
+.menu-item > ul {
+  opacity: 0;
+  transform: translateY(200px);
+  transition: all 0.7s $easeOutCirc;
+}
+.sfHover > ul {
+  opacity: 1;
+  transform: translateY(0px)
+
+}
+
+
+
