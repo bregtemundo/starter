@@ -42,15 +42,15 @@
  * @see html.html.twig
  */
 #}
+<header role="banner">
+  {{ page.header }}
+</header>
+
 <div id="js-barba-wrapper">
   <div class="js-barba-container">
 
 
     <div class="layout-container o-site-container">
-
-      <header role="banner">
-        {{ page.header }}
-      </header>
 
       {{ page.primary_menu }}
       {{ page.secondary_menu }}
@@ -82,13 +82,15 @@
 
       </main>
 
-      {% if page.footer %}
-        <footer role="contentinfo">
-          {{ page.footer }}
-        </footer>
-      {% endif %}
+
 
     </div>{# /.layout-container #}
 
-  </div>  
+  </div>
 </div>
+
+{% if page.footer %}
+<footer role="contentinfo">
+  {{ page.footer }}
+</footer>
+{% endif %}
