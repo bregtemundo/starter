@@ -35,7 +35,8 @@
       "./node_modules/scrollmagic/scrollmagic/uncompressed/plugins",
       "./node_modules/jquery.mmenu/dist",
       "./node_modules/match-media",
-      "./node_modules/superfish/src/js"
+      "./node_modules/superfish/src/js",
+      "./node_modules/headroom.js/dist"
     ]
   },
   "sprite": {

@@ -11,11 +11,13 @@
     "gulp-iconfont": "^9.0.0",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-svg-sprites": "^4.1.2",
+    "headroom.js": "^0.9.4",
     "jquery": "^3.2.1",
     "jquery.mmenu": "^6.1.5",
     "match-media": "^0.2.0",
     "scrollmagic": "^2.0.5",
-    "smooth-scrollbar": "^7.3.1"
+    "smooth-scrollbar": "^7.3.1",
+    "superfish": "^1.7.9"
   },
   "devDependencies": {
     "babel-cli": "latest",

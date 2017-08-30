@@ -27,7 +27,7 @@
 }
 .sf-menu li:hover > ul,
 .sf-menu li.sfHover > ul {
-	display: block;
+	// display: block;
 }
 
 .sf-menu a {
@@ -53,22 +53,16 @@
 	padding: .75em 1em;
 }
 
-.sf-menu > li:last-child > ul ul {
-  left: auto; // reset the default positioning
-  right: 100%; // this makes the submenu fly out to the left
-}
+//custom transition
+.sf-menu .sf-opened {
+  display: block;
 
-// custom animation
-.menu-item > ul {
   opacity: 0;
-  transform: translateY(200px);
-  transition: all 0.7s $easeOutCirc;
+  transform: translateY(20px);
+  transition: transform .4s $easeOutQuad, opacity .6s $easeOutQuad;
 }
-.sfHover > ul {
+
+.sf-menu .sf-opening {
   opacity: 1;
-  transform: translateY(0px)
-
+  transform: translateY(0);
 }
-
-
-

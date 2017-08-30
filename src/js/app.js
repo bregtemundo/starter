@@ -47,7 +47,7 @@ class App {
   }
 
   _startNavigation() {
-    this.navigation = new Navigation();
+    this.navigation = new Navigation(this.scrollbar);
   }
 
 }
