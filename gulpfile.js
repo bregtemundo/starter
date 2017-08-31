@@ -1,9 +1,4 @@
 /*
-STYLES:
-modular font grid(typesettings/ sass line / typi / plumber-sass / ritmo),
-todo: 2 options , typi or megatype whan design is on baseline grid or not,
-then import different typography.scss
-
 IMAGES:
 minify , squeze those pngs, svg sprites?
 
@@ -151,6 +146,11 @@ gulp.task('watch', function() {
 // force set variables for production
 gulp.task('production', function() {
   config.sourcemaps = false;
+});
+
+gulp.task('test', function(){
+  return gulp.src(config.css.dest + '/*.css')
+  .pipe(plugins.parker());
 });
 
 

@@ -39,6 +39,7 @@
     "gulp-jscs": "^4.0.0",
     "gulp-load-plugins": "latest",
     "gulp-notify": "^3.0.0",
+    "gulp-parker": "^0.1.4",
     "gulp-plumber": "^1.1.0",
     "gulp-prompt": "^0.2.0",
     "gulp-rename": "latest",
