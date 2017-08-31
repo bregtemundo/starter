@@ -1,6 +1,6 @@
 /*
 IMAGES:
-minify , squeze those pngs, svg sprites?
+minify , squeze those pngs
 
  */
 
@@ -149,8 +149,10 @@ gulp.task('production', function() {
 });
 
 gulp.task('test', function(){
-  return gulp.src(config.css.dest + '/*.css')
+  gulp.src(config.css.dest + '/*.css')
   .pipe(plugins.parker());
+
+  console.log("for more details http://www.testmycss.com");
 });
 
 
