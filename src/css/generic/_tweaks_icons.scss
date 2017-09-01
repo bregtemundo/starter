@@ -1,0 +1,16 @@
+/*
+ * tweak css output of fonticon
+ * 1. copied icon function and added vertical-align
+ */
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+    content: icon-char($filename);
+
+    vertical-align: middle; /* 1 */
+	}
+}
