@@ -1,0 +1,5 @@
+@media print {
+  header, footer, .tabs, .breadcrumb, .search-block-form, .menu--tools, .pager {
+    display: none;
+  }
+}

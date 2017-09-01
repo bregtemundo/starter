@@ -26,14 +26,6 @@
   @include o-list-bare__item();
 }
 
-.tabs {
-  @include o-list-inline();
-  @include clearfix();
-}
-
-.tabs li {
-  @include o-list-inline__item();
-}
 
 .feed-icon {
   @include hide-text();
@@ -46,74 +38,4 @@
 
 .block-system-powered-by-block {
   @include text-overflow();
-}
-
-/*
- * Drupal FORM
- */
-// default form
-.contact-form .form-item {
-  @include o-form-item;
-}
-
-.contact-form label,
-.contact-form legend {
-  @include o-form-item__label;
-  display: inline-block;
-  width: 200px;
-}
-
-.contact-form input:not([type=checkbox]):not([type=radio]),
-.contact-form textarea,
-.contact-form select {
-  @include o-form-item__input;
-}
-
-// textarea has a wrapper around it
-.contact-form .form-textarea-wrapper {
-  display: inline-block;
-  vertical-align: top;
-}
-
-// transform fieldset to mimic regular form item
-.contact-form legend {
-  float: left;
-  padding-top: vr($form-item-input-padding);
-  margin-right: 4px;
-}
-.contact-form .fieldset-wrapper {
-  display: inline-block;
-}
-
-// inline parts of form (form items next to each other
-.form-actions, .container-inline {
-  .form-item {
-    @include o-form-item-inline;
-  }
-
-  label {
-    @include o-form-item-inline__label;
-  }
-
-  input:not([type=checkbox]):not([type=radio]),
-  textarea,
-  select {
-    @include o-form-item-inline__input;
-  }
-}
-
-
-/*
- * Tables
- */
-table {
-  @include o-table;
-  // @include o-table-bordered;
-  // @include o-table-striped;
-}
-
-td, th {
-  @include o-table__cell;
-  // @include o-table-bordered__cell;
-  // @include o-table-striped__cell;
 }

@@ -213,7 +213,7 @@ http://flickity.metafizzy.co
   src: url("../../dist/img/icons/icons.eot");
   src: url("../../dist/img/icons/icons.eot?#iefix") format("eot"), url("../../dist/img/icons/icons.woff2") format("woff2"), url("../../dist/img/icons/icons.woff") format("woff"), url("../../dist/img/icons/icons.ttf") format("truetype"), url("../../dist/img/icons/icons.svg#icons") format("svg"); }
 
-.icon-close:before, .icon-down-arrow:before, .icon-facebook:before, .icon-hamburger:before, .icon-instagram:before, .icon-linkedin:before, .icon-twitter:before, .mm-next:after, .c-mmenu__toggle:after, .c-mmenu__toggle--close:after, .node-readmore a:after, .feed-icon:before {
+.icon-close:before, .icon-down-arrow:before, .icon-facebook:before, .icon-hamburger:before, .icon-instagram:before, .icon-linkedin:before, .icon-right-arrow:before, .icon-twitter:before, .breadcrumb li + li:before, .mm-next:after, .c-mmenu__toggle:after, .c-mmenu__toggle--close:after, .node-readmore a:after, .feed-icon:before {
   font-family: "icons";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -241,8 +241,11 @@ http://flickity.metafizzy.co
 .icon-linkedin:before {
   content: ""; }
 
-.icon-twitter:before {
+.icon-right-arrow:before {
   content: ""; }
+
+.icon-twitter:before {
+  content: ""; }
 
 /*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
 /* Document
@@ -683,6 +686,10 @@ template {
   width: 61.2em;
   height: 61.2em; }
 
+/*
+ * tweak css output of fonticon
+ * 1. copied icon function and added vertical-align
+ */
 input,
 select,
 textarea {
@@ -1241,6 +1248,59 @@ b, strong, .bold {
   padding: 1rem;
   border-width: 0; }
 
+.breadcrumb ol {
+  margin-left: 0;
+  list-style: none; }
+
+.breadcrumb li {
+  display: inline-block;
+  margin-right: 1rem; }
+
+.breadcrumb li + li:before {
+  content: "";
+  vertical-align: middle;
+  /* 1 */ }
+
+.contact-form .form-item {
+  margin-bottom: 2rem; }
+
+.contact-form label:not(.option),
+.contact-form legend {
+  display: inline-block;
+  width: 200px; }
+
+.contact-form input:not([type=checkbox]):not([type=radio]),
+.contact-form textarea,
+.contact-form select {
+  padding: 1rem; }
+
+.contact-form .form-textarea-wrapper {
+  display: inline-block;
+  vertical-align: top; }
+
+.contact-form legend {
+  float: left;
+  padding-top: 1rem;
+  margin-right: 4px; }
+
+.contact-form .fieldset-wrapper {
+  display: inline-block; }
+
+.form-actions .form-item, .container-inline .form-item {
+  display: inline-block;
+  margin-bottom: 0; }
+
+.form-actions label, .container-inline label {
+  display: inline-block; }
+
+.form-actions input:not([type=checkbox]):not([type=radio]),
+.form-actions textarea,
+.form-actions select, .container-inline input:not([type=checkbox]):not([type=radio]),
+.container-inline textarea,
+.container-inline select {
+  display: inline-block;
+  padding: 1rem; }
+
 .headroom {
   position: fixed;
   top: 0;
@@ -1569,7 +1629,9 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
   top: 0;
   z-index: 2; }
   .mm-next:after {
-    content: ""; }
+    content: "";
+    vertical-align: middle;
+    /* 1 */ }
   .mm-next:after {
     float: right; }
 
@@ -1603,12 +1665,16 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
   top: 2.60859%;
   text-decoration: none; }
   .c-mmenu__toggle:after {
-    content: ""; }
+    content: "";
+    vertical-align: middle;
+    /* 1 */ }
 
 .c-mmenu__toggle--close {
   color: #ccc; }
   .c-mmenu__toggle--close:after {
-    content: ""; }
+    content: "";
+    vertical-align: middle;
+    /* 1 */ }
 
 /*
  * Transitions
@@ -1771,8 +1837,25 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
   -ms-transform: translateY(0);
   transform: translateY(0); }
 
+.pager {
+  margin-left: 0;
+  list-style: none; }
+
+.pager__item {
+  display: inline-block;
+  display: none; }
+  @media (min-width: 600px) {
+    .pager__item {
+      display: inline-block; } }
+
+.pager__item--previous,
+.pager__item--next {
+  display: inline-block; }
+
 .node-readmore a:after {
-  content: ""; }
+  content: "";
+  vertical-align: middle;
+  /* 1 */ }
 
 .node-readmore a:before {
   color: green; }
@@ -1793,17 +1876,6 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
 .menu-item {
   margin-left: 0; }
 
-.tabs {
-  margin-left: 0;
-  list-style: none; }
-  .tabs:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-.tabs li {
-  display: inline-block; }
-
 .feed-icon {
   font: 0/0 a;
   /* [2] */
@@ -1813,7 +1885,9 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
   background-color: transparent;
   border: 0; }
   .feed-icon:before {
-    content: ""; }
+    content: "";
+    vertical-align: middle;
+    /* 1 */ }
   .feed-icon:before {
     font-size: 3.125rem;
     color: #333; }
@@ -1823,49 +1897,6 @@ html.mm-right.mm-opening .mm-menu.mm-fullscreen ~ .mm-slideout {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap; }
-
-/*
- * Drupal FORM
- */
-.contact-form .form-item {
-  margin-bottom: 2rem; }
-
-.contact-form label,
-.contact-form legend {
-  display: inline-block;
-  width: 200px; }
-
-.contact-form input:not([type=checkbox]):not([type=radio]),
-.contact-form textarea,
-.contact-form select {
-  padding: 1rem; }
-
-.contact-form .form-textarea-wrapper {
-  display: inline-block;
-  vertical-align: top; }
-
-.contact-form legend {
-  float: left;
-  padding-top: 1rem;
-  margin-right: 4px; }
-
-.contact-form .fieldset-wrapper {
-  display: inline-block; }
-
-.form-actions .form-item, .container-inline .form-item {
-  display: inline-block;
-  margin-bottom: 0; }
-
-.form-actions label, .container-inline label {
-  display: inline-block; }
-
-.form-actions input:not([type=checkbox]):not([type=radio]),
-.form-actions textarea,
-.form-actions select, .container-inline input:not([type=checkbox]):not([type=radio]),
-.container-inline textarea,
-.container-inline select {
-  display: inline-block;
-  padding: 1rem; }
 
 /*
  * Tables
@@ -1878,6 +1909,80 @@ td, th {
   padding: 1rem;
   border-left-width: 0;
   border-right-width: 0; }
+
+.tabs {
+  margin-left: 0;
+  list-style: none; }
+  .tabs:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.tabs li {
+  display: inline-block;
+  border: 1px solid #333;
+  padding: 1rem 2rem; }
+
+.tabs a {
+  text-decoration: none; }
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+                                 http://www.sanbeiji.com/archives/953 */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a,
+  a:visited {
+    text-decoration: underline; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: ""; }
+  pre {
+    white-space: pre-wrap !important; }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group; }
+  tr,
+  img {
+    page-break-inside: avoid; }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+  h2,
+  h3 {
+    page-break-after: avoid; }
+  /* reset smooth-scrollbar */
+  .scroll-content {
+    -webkit-transform: translateY(0) !important;
+    -ms-transform: translateY(0) !important;
+    transform: translateY(0) !important; } }
+
+@media print {
+  header, footer, .tabs, .breadcrumb, .search-block-form, .menu--tools, .pager {
+    display: none; } }
 
 body {
   width: 100%;

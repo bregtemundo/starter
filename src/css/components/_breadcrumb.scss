@@ -1,0 +1,13 @@
+.breadcrumb ol {
+  @include o-list-inline;
+}
+
+.breadcrumb li {
+  @include o-list-inline__item;
+  margin-right: vr(1);
+}
+
+.breadcrumb li + li {
+  @include icon(right-arrow);
+}
+

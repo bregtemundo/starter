@@ -1,0 +1,14 @@
+.tabs {
+  @include o-list-inline();
+  @include clearfix();
+}
+
+.tabs li {
+  @include o-list-inline__item();
+  border: 1px solid color(body);
+  padding: vr(1) vr(2);
+}
+
+.tabs a {
+  text-decoration: none;
+}

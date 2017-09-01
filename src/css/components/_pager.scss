@@ -1,0 +1,18 @@
+.pager {
+  @include o-list-inline;
+}
+
+// only show pages and first/last on larger screens
+.pager__item {
+  @include o-list-inline__item;
+  display: none;
+
+  @include respond-to(sm) {
+    display: inline-block;
+  }
+}
+
+.pager__item--previous,
+.pager__item--next {
+  display: inline-block;
+}
