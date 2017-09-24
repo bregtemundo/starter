@@ -43,49 +43,53 @@
  */
 #}
 <header role="banner">
-  {{ page.header }}
+  <div class="o-site-container">
+    {{ page.header }}
+  </div>
 </header>
 
-<div id="js-barba-wrapper">
-  <div class="js-barba-container">
+<div class="scrollable">
+  <div id="js-barba-wrapper">
+    <div class="js-barba-container">
 
 
-    <div class="layout-container o-site-container">
+      <div class="layout-container o-site-container">
 
-      {{ page.primary_menu }}
-      {{ page.secondary_menu }}
+        {{ page.primary_menu }}
+        {{ page.secondary_menu }}
 
-      {{ page.breadcrumb }}
+        {{ page.breadcrumb }}
 
-      {{ page.highlighted }}
+        {{ page.highlighted }}
 
-      {{ page.help }}
+        {{ page.help }}
 
-      <main role="main">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+        <main role="main">
+          <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-        <div class="layout-content">
-          {{ page.content }}
-        </div>{# /.layout-content #}
+          <div class="layout-content">
+            {{ page.content }}
+          </div>{# /.layout-content #}
 
-        {% if page.sidebar_first %}
-          <aside class="layout-sidebar-first" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endif %}
+          {% if page.sidebar_first %}
+            <aside class="layout-sidebar-first" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endif %}
 
-        {% if page.sidebar_second %}
-          <aside class="layout-sidebar-second" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
+          {% if page.sidebar_second %}
+            <aside class="layout-sidebar-second" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          {% endif %}
 
-      </main>
+        </main>
 
 
 
-    </div>{# /.layout-container #}
+      </div>{# /.layout-container #}
 
+    </div>
   </div>
 </div>
 

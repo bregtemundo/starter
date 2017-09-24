@@ -23,7 +23,7 @@
 
 
 // smooth scroll needs parent to be specific width/height
-body {
+body, .scrollable {
   width: 100%;
   height: 100vh;
 }

@@ -43,7 +43,7 @@ class App {
   }
 
   _startScroll() {
-    this.scrollbar = Scrollbar.init($body[0]);
+    this.scrollbar = Scrollbar.init($('.scrollable').get(0));
   }
 
   _startNavigation() {
