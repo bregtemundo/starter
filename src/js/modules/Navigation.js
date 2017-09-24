@@ -25,7 +25,7 @@ export default class Navigation {
 
   isActive(){
     // has navigation element
-    if($('#block-starter-main-menu').length){
+    if($('.menu--main').length){
       return true;
     }
     return false;
@@ -44,7 +44,7 @@ export default class Navigation {
 
   initMobileNavigation(){
     // setup mmenu
-    this.mobileMenu = $("#block-starter-main-menu").mmenu(
+    this.mobileMenu = $(".menu--main").mmenu(
       //options
       {
         extensions: [
@@ -84,7 +84,7 @@ export default class Navigation {
      * when showing menu (ul) we add a sf-opened class to set inital values (eg opacity:0) and show (display block)
      * then add sf-opening that sets end values (eg opacity:1)
      */
-    this.desktopMenu = $("#block-starter-main-menu > .menu").superfish({
+    this.desktopMenu = $(".menu--main > .menu").superfish({
       animation: {},
       animationOut: {},
       onBeforeShow: function() {
@@ -114,7 +114,7 @@ export default class Navigation {
 
     // add headroom.js (doesn't work in combination with smooth-scrollbar)
     this.headroom = new Headroom(
-      $('#block-starter-main-menu').get(0),
+      $('header').get(0),
       {
         scroller: this.scrollbar
       }
