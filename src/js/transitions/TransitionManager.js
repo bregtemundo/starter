@@ -33,15 +33,34 @@ export default class TransitionManager {
     Barba.Pjax.Dom.containerClass = 'js-barba-container';
     Barba.Pjax.Dom.wrapperId = 'js-barba-wrapper';
 
-    //start barba.js    
+    // start barba.js
     Barba.Pjax.start();
-    
+
+    // add support for forms (_GET)
+    this.initForms();
+
   }
 
-  onPreventCheck(event, element) {           
+  initForms() {
+    $('form[method="get"]').submit(this.onFormSubmit);
+  }
+
+  onFormSubmit(event){
+    // serialize input fields and add them to action url
+    let keys = $(this).serialize();
+    let url = $(this).get(0).action + '?' + keys;
+
+    // stop default behaviour
+    event.stopPropagation();
+    event.preventDefault();
+
+    Barba.Pjax.goTo(url);
+  }
+
+  onPreventCheck(event, element) {
     // do original check
     if (!Barba.Pjax.originalPreventCheck(event, element)) {
-      return false;     
+      return false;
     }
 
     // exclude drupal and wordpress admin links
@@ -52,15 +71,15 @@ export default class TransitionManager {
       '\/edit',
       '\/logout',
       'wpadmin',
-    ];    
-    
+    ];
+
     let exclude_re = new RegExp(exclude_paths.join("|"), "i");
-    if( exclude_re.test(element.href.toLowerCase()) ){      
+    if( exclude_re.test(element.href.toLowerCase()) ){
       return false;
-    }          
+    }
 
     return true;
-    
+
 
   }
 
@@ -68,9 +87,9 @@ export default class TransitionManager {
   onGetTransition() {
     this.transition = (this.clickedLink instanceof Node) ? this.clickedLink.getAttribute('data-transition') : (typeof transition === 'string' ? transition : '');
 
-    let TransitionObject;      
+    let TransitionObject;
     TransitionObject = DefaultTransition();
-    
+
     this.clickedLink = undefined;
     this.transition = '';
 
@@ -78,7 +97,7 @@ export default class TransitionManager {
   }
 
   // link clicked
-  onLinkClicked(HTMLElement, MouseEvent) {        
+  onLinkClicked(HTMLElement, MouseEvent) {
     this.clickedLink = HTMLElement;
   }
 
@@ -111,7 +130,7 @@ export default class TransitionManager {
   }
 
   /**
-   * DOM is loaded  
+   * DOM is loaded
    */
   onLoad() {
     $html.addClass('dom-is-loaded');
@@ -121,5 +140,5 @@ export default class TransitionManager {
     }, 1000)
   }
 
-    
+
 }
