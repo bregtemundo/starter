@@ -1,7 +1,7 @@
 /* jshint esnext: true */
 import { $document, $body, APP_NAME } from '../utils/environment';
 import $ from "jquery";
-import Flickity from "Flickity"
+import Flickity from "flickity"
 // Get individual components
 import { TimelineMax, CSSPlugin, TextPlugin, Linear } from "gsap";
 
