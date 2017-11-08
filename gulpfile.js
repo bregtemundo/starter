@@ -53,10 +53,22 @@ gulp.task("browserify", function () {
         "plugins": "transform-class-properties",
         "sourceMaps": config.sourcemaps
       }]
-    ]
+    ],
+    //properties needed for watchify
+    cache: {},
+    packageCache: {}
   };
 
-  browserify(props).bundle()
+  // create and watch the bundler
+  var b = watchify(browserify(props));
+  b.on('update', bundle);
+
+  // bundle on first run
+  bundle();
+
+
+  function bundle(){
+    return b.bundle()
     .on('error', handleErrors)
     .pipe(plugins.plumber({errorHandler: handleErrors}))
     .pipe(source('app.js'))
@@ -65,6 +77,7 @@ gulp.task("browserify", function () {
     .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.write('/maps', {includeContent: false, sourceRoot: '/'})) )
     .pipe(plugins.plumber.stop())
     .pipe(gulp.dest(config.js.dest));
+  }
 
 });
 
@@ -133,7 +146,7 @@ gulp.task('watch', function() {
   gulp.watch(config.css.src + '/**/*.scss', ['sass']);
 
   // watch js updates
-  gulp.watch(config.js.src + '/**/*.js', ['browserify']);
+  gulp.start('browserify');
 
   // watch icons updates
   gulp.watch(config.icons.src + '/**/*.svg', ['icons']);
