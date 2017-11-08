@@ -1,4 +1,4 @@
-import { $document, $body, $html } from '../utils/environment';
+import { $document, $window, $body, $html } from '../utils/environment';
 import $ from "jquery";
 import "match-media";
 import "jquery.mmenu";
@@ -13,10 +13,9 @@ require("superfish");
 export default class Navigation {
   mobileMenu = null;
   desktopMenu = null;
-  scrollbar = null;
 
-  constructor(options) {
-    this.scrollbar = options;
+
+  constructor() {
     if(this.isActive()){
       this.init();
     }
@@ -112,27 +111,28 @@ export default class Navigation {
     });
     this.desktopMenu.addClass('sf-menu');
 
-    // add headroom.js (doesn't work in combination with smooth-scrollbar)
-    this.headroom = new Headroom(
-      $('header').get(0),
-      {
-        scroller: this.scrollbar
-      }
-    );
 
+    // add headroom.js
+    this.headroom = new Headroom( $('header').get(0) );
+
+    // (doesn't work in combination with smooth-scrollbar)
     // overwrite attachEvent and getScrollY when working with smooth-scrollbar
-    this.headroom.getScrollY = function() {
-      return this.scroller.scrollTop;
-    }
-    this.headroom.attachEvent = function() {
-      if(!this.initialised){
-        this.lastKnownScrollY = this.getScrollY();
-        this.initialised = true;
-        this.scroller.addListener(() => {
-          this.debouncer.handleEvent();
-        });
+    if($window.app.scrollManager.useSmoothScroll) {
+      this.headroom.scroller = $window.app.scrollManager.scrollbar;
 
-        this.debouncer.handleEvent();
+      this.headroom.getScrollY = function() {
+        return this.scroller.scrollTop;
+      }
+      this.headroom.attachEvent = function() {
+        if(!this.initialised){
+          this.lastKnownScrollY = this.getScrollY();
+          this.initialised = true;
+          this.scroller.addListener(() => {
+            this.debouncer.handleEvent();
+          });
+
+          this.debouncer.handleEvent();
+        }
       }
     }
 

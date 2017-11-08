@@ -1,15 +1,19 @@
 import TransitionManager from 'transitions/TransitionManager';
 import $ from "jquery";
 import { $document, $html, $body, isDebug } from 'utils/environment';
-import Scrollbar from 'smooth-scrollbar';
+import ScrollManager from 'modules/ScrollManager';
 
 import Navigation from './modules/Navigation'
 import Example from './modules/Example';
 
 class App {
   transitionManager;
+  scrollManager;
 
   constructor() {
+    // set a global reference to the app
+    $window.app = this;
+
     // start transitionManager if needed
     this._startTransitions();
 
@@ -43,11 +47,11 @@ class App {
   }
 
   _startScroll() {
-    this.scrollbar = Scrollbar.init($('.scrollable').get(0));
+    this.scrollManager = new ScrollManager(true);
   }
 
   _startNavigation() {
-    this.navigation = new Navigation(this.scrollbar);
+    this.navigation = new Navigation();
   }
 
 }
