@@ -47,5 +47,9 @@
   "icons": {
     "src": "src/img/icons",
     "dest": "dist/img/icons"
+  },
+  "docs": {
+    "dest" : "docs",
+    "template": "node_modules/michelangelo/kss_styleguide/custom-template/"
   }
 }

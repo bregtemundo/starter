@@ -19,6 +19,8 @@ minify , squeze those pngs
  const svgSprite = require("gulp-svg-sprites");
  const iconfont = require('gulp-iconfont');
  const iconfontCss = require('gulp-iconfont-css');
+ const kss = require('kss');
+ const del = require('del');
 
 
  const config = require('./gulp-config.json');
@@ -166,6 +168,29 @@ gulp.task('test', function(){
   .pipe(plugins.parker());
 
   console.log("for more details http://www.testmycss.com");
+});
+
+gulp.task('docs', function(){
+  //clear docs folder
+  del(config.docs.dest);
+  //compile sass to docs folder to use for styleguide
+  gulp.src(config.css.src + '/**/*.scss')
+  .pipe(sassGlob())
+  .pipe(plugins.sass({
+    includePaths: config.css.paths
+  }))
+  .pipe(gulp.dest(config.docs.dest + '/' + config.css.dest))
+  // build the styleguide
+  .on('end', function() {
+    kss({
+    source: config.docs.dest + '/' + config.css.dest,
+    destination: config.docs.dest,
+    builder: config.docs.template,
+    //homepage: config.server.styleguide.homepage,
+    css: config.css.dest,
+    title: 'Styleguide',
+    })
+  });
 });
 
 
