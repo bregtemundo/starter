@@ -29,6 +29,7 @@
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "latest",
     "browserify": "latest",
+    "browserify-shim": "^3.8.14",
     "browsersync": "^0.0.1-security",
     "del": "^3.0.0",
     "glob": "^7.1.2",
@@ -63,6 +64,9 @@
     "vinyl-source-stream": "latest",
     "watchify": "latest",
     "webfontloader": "^1.6.28"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -54,7 +54,9 @@ gulp.task("browserify", function () {
         "presets": ["es2015"],
         "plugins": "transform-class-properties",
         "sourceMaps": config.sourcemaps
-      }]
+      }],
+      // remove libraries that we don't want in our package
+      ["browserify-shim", {global: true}]
     ],
     //properties needed for watchify
     cache: {},
