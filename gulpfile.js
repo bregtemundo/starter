@@ -27,7 +27,7 @@ minify , squeze those pngs
 
 // Compile Sass to css, prefix css variables when needed
 gulp.task('sass', function() {
-  gulp.src(config.css.src + '/**/*.scss')
+  return gulp.src(config.css.src + '/**/*.scss')
     .pipe(plugins.plumber({errorHandler: handleErrors}))
     .pipe(plugins.if(config.sourcemaps, plugins.sourcemaps.init()) )
     .pipe(sassGlob())
@@ -68,7 +68,7 @@ gulp.task("browserify", function () {
   b.on('update', bundle);
 
   // bundle on first run
-  bundle();
+  return bundle();
 
 
   function bundle(){
@@ -123,14 +123,16 @@ gulp.task('icons', function(){
 });
 
 // get files ready for production
-gulp.task('minify', function() {
+gulp.task('minify', plugins.sequence('minify-css', 'minify-js'));
+gulp.task('minify-css', function() {
   // minify css
-  gulp.src(config.css.dest + '/**/*.css')
+  return gulp.src(config.css.dest + '/**/*.css')
     .pipe(plugins.cleanCss())
     .pipe(gulp.dest(config.css.dest));
-
+});
+gulp.task('minify-js', function() {
   // minify js
-  gulp.src(config.js.dest + '/**/*.js')
+  return gulp.src(config.js.dest + '/**/*.js')
     .pipe(plugins.uglify())
     //.pipe(plugins.rename({ extname: '.min.js' }))
     .pipe(gulp.dest(config.js.dest));
@@ -163,6 +165,7 @@ gulp.task('watch', function() {
 // force set variables for production
 gulp.task('production', function() {
   config.sourcemaps = false;
+  return;
 });
 
 gulp.task('test', function(){
