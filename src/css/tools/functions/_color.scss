@@ -1,4 +1,15 @@
-// get color from $colors map
+/*
+color($colorname)
+
+Takes a color key and returns the hex value, The $colors map is set in settings/variables.scss
+
+$colorname - name of a key in the $colors variable (options see below)
+
+Weight: -10
+
+Styleguide tools.functions.color.color
+*/
+
 @function get-color($key) {
   $mapped-color: map-get($colors, $key);
 
@@ -15,7 +26,21 @@
   @return get-color($key);
 }
 
-// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
+
+/*
+color-contrast($color, $dark, $light)
+
+Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
+
+$color  - color of the background to check the contrast against
+$dark   - color of the dark variant
+$light  - color of the light variant
+
+Weight: -11
+
+Styleguide tools.functions.color.color-contrast
+*/
+
 @function color-contrast($color, $dark: #000, $light: #fff) {
   @if $color == null {
     @return null;
@@ -33,3 +58,5 @@
 @function brightness($color) {
   @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100%;
 }
+
+

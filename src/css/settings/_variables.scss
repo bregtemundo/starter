@@ -123,4 +123,77 @@ $colors: (
   ok:         green,
   warning:    orange,
   error:      red
-)
+);
+
+// print out colors for the docs
+@each $color-name,$color-code in $colors {
+  $color-hex: map-get($colors, $color-name );
+  /*
+  #{$color-name} : #{$color-hex}
+
+  Markup:
+  <h2 style="padding:50px; background-color:#{$color-hex};">&nbsp;</h2>
+
+  Styleguide tools.functions.color.#{$color-name}
+  */
+}
+
+// print out fontsizes for docs
+@each $fontsize-name, $fontsize-value in $fontsizes {
+  /*
+  #{$fontsize-name} : #{$fontsize-value}
+
+  Styleguide tools.mixins.type.type.fontsize.#{$fontsize-name}
+  */
+}
+
+// print out fontfaces for docs
+@each $fontface-name, $fontface-value in $fontfaces {
+  $fontface-family: map-get($fontface-value, 'font-family');
+  /*
+  #{$fontface-name} : #{$fontface-family}
+
+  usage:
+  @include ff(#{$fontface-name});
+
+  Styleguide tools.mixins.type.ff.#{$fontface-name}
+  */
+}
+
+// grid docs
+/*
+grid
+
+the grid is defined by susy 2<br>
+columns are set with mixin @indelude span(3);<br>
+grid layouts are set with mixin @include gallery(3)<br>
+more info on http://susy.readthedocs.io/shorthand/<br><br>
+
+columns: #{$susy-nr-of-columns}<br>
+gutters: #{$susy-size-gutters}<br>
+container: #{$susy-max-width}
+
+Styleguide tools.mixins.layout.grid
+*/
+
+// breakpoint docs
+/*
+breakpoints
+
+breakpoint sass library is used http://breakpoint-sass.com/<br>
+breakpoints are mobile first, so we start with smallest resolution and add on as screen gets larger
+breakpoint can be set with mixin @include respond-to(sm);
+
+Styleguide tools.mixins.layout.breakpoint
+*/
+@each $breakpoint-name, $breakpoint-value in $BREAKPOINTS {
+  /*
+  #{$breakpoint-name}
+
+  #{$breakpoint-name}: #{$breakpoint-value}
+
+  Styleguide tools.mixins.layout.breakpoint.#{$breakpoint-name}
+  */
+}
+
+

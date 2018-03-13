@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="generator" content="kss-node">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300">
+    <link rel="stylesheet" href="kss-assets/vendor/prism.css">
+    <link rel="stylesheet" href="kss-assets/css/kss.css">
+    
+  </head>
+
+  <body class="kss-body">
+
+    <!-- header. -->
+    <header class="kss-header">
+      <section class="kss-header__inner">
+        <a class="kss-header__hamburger-trigger">
+          <div class="kss-header__hamburger"></div>
+        </a>
+        <h1 class="kss-header__title kss-title">Styleguide</h1>
+      </section>
+    </header>
+    <!-- /header. -->
+
+
+    <!-- navigation. -->
+    <section class="kss-navigation">
+      <h1 class="kss-navigation__title kss-title">Styleguide</h1>
+      <ul class="kss-nav">
+        <li class="kss-nav__item">
+          <a href="index.html">
+            <span class="kss-nav__ref">0</span>
+            <span class="kss-nav__name">Introduction</span>
+          </a>
+        </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-tools.html">
+              <span class="kss-nav__ref">1</span>
+              <span class="kss-nav__name">tools</span>
+            </a>
+          </li>
+      </ul>
+    </section>
+    <!-- /navigation. -->
+
+
+    <!-- documentation. -->
+    <section class="kss-documentation">
+
+        <!--
+          display each section, in order.
+          the "root" element comes first in this loop, and can be detected using
+          the "#if @first" block as seen below.
+        -->
+            <header class="kss-section kss-section--depth-4" id="kssref-tools-mixins-type-type">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>438</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.6.3</span>
+                  <span class="kss-section__name">type($sizemap, $leader, $trailer, $font)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>Mixin for setting font size (and margins) <br>
+Output depends on $baseline variable (settins/_variables.scss):<br></p>
+<p><ul>
+ <li>if baseline =&gt; output with the megatype library to keep fonts to baseline grid</li>
+ <li>else we output font-size and line-height</li>
+</ul>
+$fontsizes are set in settings/_variables.scss:<br>
+<code>(base: (null: 16px, 1.58, lg: 18px), h1: (null: 40px, 1.54, lg: 100px, 1), h2: (null: 32px, 1.15), h3: (null: 32px), h4: (null: 30px), h5: (null: 27px), h6: (null: 25px))</code></p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the key of the $fontsizes map
+
+                    </p>
+                    <code class="kss-parameters__name">$sizemap</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the vr rithm above, can be unitless or static value
+
+                    </p>
+                    <code class="kss-parameters__name">$leader</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the vr below
+
+                    </p>
+                    <code class="kss-parameters__name">$trailer</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the name of the font-face (body, title)
+
+                    </p>
+                    <code class="kss-parameters__name">$font</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </header>
+    </section>
+    <!-- /documentation. -->
+
+
+
+  <!-- scripts. -->
+  <script src="kss-assets/vendor/jquery.js"></script>
+  <script src="kss-assets/vendor/prism.js"></script>
+  <script src="kss-assets/js/kss.js"></script>
+  
+  <!-- /scripts. -->
+
+  </body>
+</html>

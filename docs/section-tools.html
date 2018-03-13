@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styleguide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="generator" content="kss-node">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300">
+    <link rel="stylesheet" href="kss-assets/vendor/prism.css">
+    <link rel="stylesheet" href="kss-assets/css/kss.css">
+    
+  </head>
+
+  <body class="kss-body">
+
+    <!-- header. -->
+    <header class="kss-header">
+      <section class="kss-header__inner">
+        <a class="kss-header__hamburger-trigger">
+          <div class="kss-header__hamburger"></div>
+        </a>
+        <h1 class="kss-header__title kss-title">Styleguide</h1>
+      </section>
+    </header>
+    <!-- /header. -->
+
+
+    <!-- navigation. -->
+    <section class="kss-navigation">
+      <h1 class="kss-navigation__title kss-title">Styleguide</h1>
+      <ul class="kss-nav">
+        <li class="kss-nav__item">
+          <a href="index.html">
+            <span class="kss-nav__ref">0</span>
+            <span class="kss-nav__name">Introduction</span>
+          </a>
+        </li>
+          <li class="kss-nav__item">
+            <a class="kss-state-active" href="section-tools.html">
+              <span class="kss-nav__ref">1</span>
+              <span class="kss-nav__name">tools</span>
+            </a>
+                <ul class="kss-nav__subnav">
+                    <li class="kss-nav__item ">
+                      <a href="section-tools.html#kssref-tools-functions">
+                        <span class="kss-nav__ref">1.1</span>
+                        <span class="kss-nav__name">tools.functions</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-functions-color">
+                        <span class="kss-nav__ref">1.1.1</span>
+                        <span class="kss-nav__name">tools.functions.color</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-functions-unit">
+                        <span class="kss-nav__ref">1.1.2</span>
+                        <span class="kss-nav__name">tools.functions.unit</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item ">
+                      <a href="section-tools.html#kssref-tools-mixins">
+                        <span class="kss-nav__ref">1.2</span>
+                        <span class="kss-nav__name">tools.mixins</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-clearfix">
+                        <span class="kss-nav__ref">1.2.1</span>
+                        <span class="kss-nav__name">clearfix</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-hide-text">
+                        <span class="kss-nav__ref">1.2.2</span>
+                        <span class="kss-nav__name">hide-text</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-layout">
+                        <span class="kss-nav__ref">1.2.3</span>
+                        <span class="kss-nav__name">tools.mixins.layout</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-sprite">
+                        <span class="kss-nav__ref">1.2.4</span>
+                        <span class="kss-nav__name">sprite</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-text-overflow">
+                        <span class="kss-nav__ref">1.2.5</span>
+                        <span class="kss-nav__name">text-overflow</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-type">
+                        <span class="kss-nav__ref">1.2.6</span>
+                        <span class="kss-nav__name">tools.mixins.type</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-tools.html#kssref-tools-mixins-vr">
+                        <span class="kss-nav__ref">1.2.7</span>
+                        <span class="kss-nav__name">vr($property, $value)</span>
+                      </a>
+                    </li>
+                </ul>
+          </li>
+      </ul>
+    </section>
+    <!-- /navigation. -->
+
+
+    <!-- documentation. -->
+    <section class="kss-documentation">
+
+        <!--
+          display each section, in order.
+          the "root" element comes first in this loop, and can be detected using
+          the "#if @first" block as seen below.
+        -->
+            <header class="kss-section kss-section--depth-1" id="kssref-tools">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools">
+                <h1 class="kss-section__item kss-section__item--depth-1">
+                  <span class="kss-section__ref">1</span>
+                  <span class="kss-section__name">tools</span>
+                </h1>
+              </a>
+
+
+            </article>
+
+
+            </header>
+            <section class="kss-section kss-section--depth-2" id="kssref-tools-functions">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions">
+                <h2 class="kss-section__item kss-section__item--depth-2">
+                  <span class="kss-section__ref">1.1</span>
+                  <span class="kss-section__name">tools.functions</span>
+                </h2>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-functions-color">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.1.1</span>
+                  <span class="kss-section__name">tools.functions.color</span>
+                </h3>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-color-contrast">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>364</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-color-contrast">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.1</span>
+                  <span class="kss-section__name">color-contrast($color, $dark, $light)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>Compares contrast of a given color to the light/dark arguments and returns whichever is most &quot;contrasty&quot;</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      color of the background to check the contrast against
+
+                    </p>
+                    <code class="kss-parameters__name">$color</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      color of the dark variant
+
+                    </p>
+                    <code class="kss-parameters__name">$dark</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      color of the light variant
+
+                    </p>
+                    <code class="kss-parameters__name">$light</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-color">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>353</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-color">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.2</span>
+                  <span class="kss-section__name">color($colorname)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>Takes a color key and returns the hex value, The $colors map is set in settings/variables.scss</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      name of a key in the $colors variable (options see below)
+
+                    </p>
+                    <code class="kss-parameters__name">$colorname</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-body">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>179</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-body">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.3</span>
+                  <span class="kss-section__name">body : #333</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#333;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#333;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-border">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>211</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-border">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.4</span>
+                  <span class="kss-section__name">border : #999</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#999;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#999;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-disabled">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>203</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-disabled">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.5</span>
+                  <span class="kss-section__name">disabled : #ccc</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#ccc;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#ccc;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-error">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>243</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-error">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.6</span>
+                  <span class="kss-section__name">error : red</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:red;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:red;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-ok">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>227</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-ok">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.7</span>
+                  <span class="kss-section__name">ok : green</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:green;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:green;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-primary">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>187</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-primary">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.8</span>
+                  <span class="kss-section__name">primary : #111</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#111;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#111;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-secundary">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>195</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-secundary">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.9</span>
+                  <span class="kss-section__name">secundary : #222</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#222;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#222;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-selection">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>219</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-selection">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.10</span>
+                  <span class="kss-section__name">selection : #4682b4</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:#4682b4;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:#4682b4;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-color-warning">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>235</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-color-warning">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.1.11</span>
+                  <span class="kss-section__name">warning : orange</span>
+                </h4>
+              </a>
+
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"><h2 style="padding:50px; background-color:orange;">&nbsp;</h2></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">&lt;h2 style&#x3D;&quot;padding:50px; background-color:orange;&quot;&gt;&amp;nbsp;&lt;/h2&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-functions-unit">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-unit">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.1.2</span>
+                  <span class="kss-section__name">tools.functions.unit</span>
+                </h3>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-unit-rem">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>383</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-unit-rem">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.2.1</span>
+                  <span class="kss-section__name">rem($value)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>converts px to rem</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      value in px to convert to rem
+
+                    </p>
+                    <code class="kss-parameters__name">$value</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-functions-unit-vr">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>392</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-functions-unit-vr">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.1.2.2</span>
+                  <span class="kss-section__name">vr($value:1)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>returns the size of x * vertical padding</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      value of spacing, can be unitless to apply value * vertical padding, if not it converts the value to rem
+
+                    </p>
+                    <code class="kss-parameters__name">$value</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-2" id="kssref-tools-mixins">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins">
+                <h2 class="kss-section__item kss-section__item--depth-2">
+                  <span class="kss-section__ref">1.2</span>
+                  <span class="kss-section__name">tools.mixins</span>
+                </h2>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-clearfix">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>401</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-clearfix">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.1</span>
+                  <span class="kss-section__name">clearfix</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>mixin to apply the clearfix</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-hide-text">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>408</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-hide-text">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.2</span>
+                  <span class="kss-section__name">hide-text</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>mixin to hide text , used for eg image replacement<br>
+Source: <a href="https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757">https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757</a></p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-layout">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.3</span>
+                  <span class="kss-section__name">tools.mixins.layout</span>
+                </h3>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-mixins-layout-breakpoint">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>316</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-breakpoint">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.3.1</span>
+                  <span class="kss-section__name">breakpoints</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>breakpoint sass library is used <a href="http://breakpoint-sass.com/">http://breakpoint-sass.com/</a><br>
+breakpoints are mobile first, so we start with smallest resolution and add on as screen gets larger
+breakpoint can be set with mixin @include respond-to(sm);</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-layout-breakpoint-lg">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>346</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-breakpoint-lg">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.3.1.1</span>
+                  <span class="kss-section__name">lg</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>lg: 1325px</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-layout-breakpoint-md">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>339</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-breakpoint-md">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.3.1.2</span>
+                  <span class="kss-section__name">md</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>md: 1020px</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-layout-breakpoint-sm">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>332</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-breakpoint-sm">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.3.1.3</span>
+                  <span class="kss-section__name">sm</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>sm: 600px</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-layout-breakpoint-xs">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>325</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-breakpoint-xs">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.3.1.4</span>
+                  <span class="kss-section__name">xs</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>xs: 321px</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-mixins-layout-grid">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>302</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-layout-grid">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.3.2</span>
+                  <span class="kss-section__name">grid</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>the grid is defined by susy 2<br>
+columns are set with mixin @indelude span(3);<br>
+grid layouts are set with mixin @include gallery(3)<br>
+more info on <a href="http://susy.readthedocs.io/shorthand/">http://susy.readthedocs.io/shorthand/</a><br><br></p>
+<p>columns: 12<br>
+gutters: 0.439<br>
+container: 1200px</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-sprite">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>420</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-sprite">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.4</span>
+                  <span class="kss-section__name">sprite</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>use as @include sprite(twitter);<br>
+shows the correct part of the sprite as background image in the before pseudo element<br>
+can&#39;t change color this way<br>
+scale by font-size, to get the original size use 10px<br></p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-text-overflow">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>430</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-text-overflow">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.5</span>
+                  <span class="kss-section__name">text-overflow</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>shows ... after single line text <br>
+Requires display inline-block or block to work, also needs a width to overflow</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-type">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.6</span>
+                  <span class="kss-section__name">tools.mixins.type</span>
+                </h3>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-mixins-type-ff">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>457</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-ff">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.6.1</span>
+                  <span class="kss-section__name">ff($font)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>sets a font-family (stack) from a map key <br>
+with this mixin we can use a map key, e.g. body to get the correct font stack<br>
+font faces are set in settings/_variables.scss</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the name of the font-face (body, title)
+
+                    </p>
+                    <code class="kss-parameters__name">$font</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-type-ff-body">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>286</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-ff-body">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.6.1.1</span>
+                  <span class="kss-section__name">body : &quot;Helvetica Neue&quot;, Arial, sans-serif</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>usage:
+@include ff(body);</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-type-ff-title">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>294</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-ff-title">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.6.1.2</span>
+                  <span class="kss-section__name">title : Roboto, Arial, sans-serif</span>
+                </h5>
+              </a>
+
+                <div class="kss-section__description"><p>usage:
+@include ff(title);</p>
+</div>
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-mixins-type-fw">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>468</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-fw">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.6.2</span>
+                  <span class="kss-section__name">fw($font, $weight)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>sets a font-weight for a font-face <br>
+for some fonts bold is font-weight:600, for others 700<br>
+with this mixin we can use a map key, e.g. bold to get the correct weight for the $font<br>
+weights are set in settings/_variables.scss</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the name of the font-face we want the weight of (body, title)
+
+                    </p>
+                    <code class="kss-parameters__name">$font</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the name of the weight (light, normal, medium, bold)
+
+                    </p>
+                    <code class="kss-parameters__name">$weight</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-4" id="kssref-tools-mixins-type-type">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>438</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type">
+                <h4 class="kss-section__item kss-section__item--depth-4">
+                  <span class="kss-section__ref">1.2.6.3</span>
+                  <span class="kss-section__name">type($sizemap, $leader, $trailer, $font)</span>
+                </h4>
+              </a>
+
+                <div class="kss-section__description"><p>Mixin for setting font size (and margins) <br>
+Output depends on $baseline variable (settins/_variables.scss):<br></p>
+<p><ul>
+ <li>if baseline =&gt; output with the megatype library to keep fonts to baseline grid</li>
+ <li>else we output font-size and line-height</li>
+</ul>
+$fontsizes are set in settings/_variables.scss:<br>
+<code>(base: (null: 16px, 1.58, lg: 18px), h1: (null: 40px, 1.54, lg: 100px, 1), h2: (null: 32px, 1.15), h3: (null: 32px), h4: (null: 30px), h5: (null: 27px), h6: (null: 25px))</code></p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the key of the $fontsizes map
+
+                    </p>
+                    <code class="kss-parameters__name">$sizemap</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the vr rithm above, can be unitless or static value
+
+                    </p>
+                    <code class="kss-parameters__name">$leader</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the vr below
+
+                    </p>
+                    <code class="kss-parameters__name">$trailer</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      the name of the font-face (body, title)
+
+                    </p>
+                    <code class="kss-parameters__name">$font</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-5" id="kssref-tools-mixins-type-type-fontsize">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize">
+                <h5 class="kss-section__item kss-section__item--depth-5">
+                  <span class="kss-section__ref">1.2.6.3.1</span>
+                  <span class="kss-section__name">tools.mixins.type.type.fontsize</span>
+                </h5>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-base">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>251</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-base">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.1</span>
+                  <span class="kss-section__name">base : (null: 16px, 1.58, lg: 18px)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h1">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>256</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h1">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.2</span>
+                  <span class="kss-section__name">h1 : (null: 40px, 1.54, lg: 100px, 1)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h2">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>261</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h2">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.3</span>
+                  <span class="kss-section__name">h2 : (null: 32px, 1.15)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h3">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>266</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h3">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.4</span>
+                  <span class="kss-section__name">h3 : (null: 32px)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h4">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>271</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h4">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.5</span>
+                  <span class="kss-section__name">h4 : (null: 30px)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h5">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>276</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h5">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.6</span>
+                  <span class="kss-section__name">h5 : (null: 27px)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-6" id="kssref-tools-mixins-type-type-fontsize-h6">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>281</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-type-type-fontsize-h6">
+                <h6 class="kss-section__item kss-section__item--depth-6">
+                  <span class="kss-section__ref">1.2.6.3.1.7</span>
+                  <span class="kss-section__name">h6 : (null: 25px)</span>
+                </h6>
+              </a>
+
+
+            </article>
+
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-tools-mixins-vr">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>app.css</span>, line <span>481</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-tools-mixins-vr">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">1.2.7</span>
+                  <span class="kss-section__name">vr($property, $value)</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>return the vr value for a css proporty for <b>all</b> breakpoints</p>
+</div>
+
+                <ul class="kss-parameters">
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      css property to set e.g. padding-bottom
+
+                    </p>
+                    <code class="kss-parameters__name">$property</code>
+                  </li>
+                  <li class="kss-parameters__item">
+                    <p class="kss-parameters__description">
+                      amount of vr
+
+                    </p>
+                    <code class="kss-parameters__name">$value</code>
+                  </li>
+                </ul>
+            </article>
+
+
+            </section>
+    </section>
+    <!-- /documentation. -->
+
+
+
+  <!-- scripts. -->
+  <script src="kss-assets/vendor/jquery.js"></script>
+  <script src="kss-assets/vendor/prism.js"></script>
+  <script src="kss-assets/js/kss.js"></script>
+  
+  <!-- /scripts. -->
+
+  </body>
+</html>

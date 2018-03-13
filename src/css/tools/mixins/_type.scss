@@ -4,12 +4,12 @@ $debug-baseline: $debug !default;
 
 // mixin to initialize type, dependin on $baseline variable we initialize megatype or typi
 @mixin type-init {
-  @if($baseline-grid or $type-type == 'baseline') {   
+  @if($baseline-grid or $type-type == 'baseline') {
 
-    // debug baseline grid 
-    $debug-grid: $debug-baseline !global;  
-    $debug-type: $debug-baseline !global; 
-    $debug-allow: $debug-baseline !global; 
+    // debug baseline grid
+    $debug-grid: $debug-baseline !global;
+    $debug-type: $debug-baseline !global;
+    $debug-allow: $debug-baseline !global;
 
 
     // breakpoint count
@@ -20,49 +20,63 @@ $debug-baseline: $debug !default;
 
     // megatype settings
     $baseline-snap: $baseline-grid !global;
-    $baseline-scaling: false !global; 
+    $baseline-scaling: false !global;
 
     //include megatype (html rootsizes)
-    @include megatype;    
+    @include megatype;
   }
-  @else {    
+  @else {
     // breakpoint count
     $breakpoint-count: length(map-keys($breakpoint-map)) !global;
     // breakpoint names
     $breaks: map-keys($breakpoint-map) !global;
-    
+
     $baseline-scaling: true !global;
-    
+
     @include rootsize;
-  }  
+  }
 }
 
 
 /*
- * Mixin for setting type size
- * Output depends on $baseline variable
- * - if baseline => output with the megatype library to keep fonts to baseline grid
- * - else we output font-size and line-height
- */
+type($sizemap, $leader, $trailer, $font)
+
+Mixin for setting font size (and margins) <br>
+Output depends on $baseline variable (settins/_variables.scss):<br>
+<ul>
+ <li>if baseline => output with the megatype library to keep fonts to baseline grid</li>
+ <li>else we output font-size and line-height</li>
+</ul>
+$fontsizes are set in settings/_variables.scss:<br>
+<code>#{$fontsizes}</code>
+
+$sizemap   - the key of the $fontsizes map
+$leader    - the vr rithm above, can be unitless or static value
+$trailer   - the vr below
+$font      - the name of the font-face (body, title)
+
+Styleguide tools.mixins.type.type
+*/
+
 @mixin type ($sizemap, $leader:0, $trailer:0, $font:'body' ) {
 
   $font: font-get($font);
-    
+
   // check if a key to $fontsizes was passed as size
   $fm: null !default;
-  @if map-has-key($fontsizes, $sizemap) {    
-    $fm: map-get($fontsizes, $sizemap);        
+  @if map-has-key($fontsizes, $sizemap) {
+    $fm: map-get($fontsizes, $sizemap);
   }
 
   // map is used
   @if $fm != null {
-    @each $breakpoint, $target-value in $fm {      
-      @if $breakpoint == null {                
-        @include _type_output($target-value, $leader, $trailer, $font);                
+    @each $breakpoint, $target-value in $fm {
+      @if $breakpoint == null {
+        @include _type_output($target-value, $leader, $trailer, $font);
       }
       @else {
-        @include respond-to($breakpoint) {      
-          @include _type_output($target-value, $leader, $trailer, $font);          
+        @include respond-to($breakpoint) {
+          @include _type_output($target-value, $leader, $trailer, $font);
         }
       }
     }
@@ -70,9 +84,9 @@ $debug-baseline: $debug !default;
 
   //output single font
   @else {
-    @include _type_output($sizemap, $leader, $trailer, $font);    
-  } 
-  
+    @include _type_output($sizemap, $leader, $trailer, $font);
+  }
+
 }
 
 @mixin _type_output ($sizemap, $leader, $trailer, $font) {
@@ -80,24 +94,24 @@ $debug-baseline: $debug !default;
   $fs: nth($sizemap, 1);
   $lh: null !default;
   @if(length($sizemap)>1) {
-    $lh: nth($sizemap, 2);    
+    $lh: nth($sizemap, 2);
   }
 
   @if($baseline-grid) {
     @if $lh != null {
       @if index('px', unit($lh)) == null {
-        $lh: $lh * $fs;        
+        $lh: $lh * $fs;
       }
     }
     @else {
       $lh: 1.2 * $fs;
     }
-    @include typeset($font: $font, $fontsize: $fs, $lineheight: $lh, $leader: $leader, $trailer: $trailer);    
+    @include typeset($font: $font, $fontsize: $fs, $lineheight: $lh, $leader: $leader, $trailer: $trailer);
   }
   @else {
     //get rootsize of current breakpoint, used as a context to calc rem
-    $active-rootsize: get-rootsize();         
-    
+    $active-rootsize: get-rootsize();
+
     //output font-size and line-height
     font-size: rem($fs, $active-rootsize);
     @if $lh != null {
@@ -112,12 +126,12 @@ $debug-baseline: $debug !default;
       $mt: $leader;
       @if index('px', unit($leader)) == null {
         $mt: vr($leader);
-      } 
+      }
       $mb: $trailer;
       @if index('px', unit($trailer)) == null {
         $mb: vr($trailer);
-      }  
-      
+      }
+
       // convert px to rem
       @if(unit($mt) == 'px'){
         $mt: rem($mt, $active-rootsize);
@@ -125,99 +139,123 @@ $debug-baseline: $debug !default;
       @if(unit($mb) == 'px'){
         $mb: rem($mb, $active-rootsize);
       }
-        
+
       @if $type-type == 'line-height' {
         //measured from line-height
-        margin-top: $mt; 
+        margin-top: $mt;
         margin-bottom: $mb;
       }
       @else {
         //measured from bottom of font
         $lh_in_px: $lh;
         @if index('px', unit($lh)) == null {
-          $lh_in_px: $fs * $lh;      
+          $lh_in_px: $fs * $lh;
         }
 
-        $font-empty-space: ($lh_in_px - $fs)/2;          
+        $font-empty-space: ($lh_in_px - $fs)/2;
         margin-top: $mt - $font-empty-space;
         margin-bottom: $mb - $font-empty-space;
-      }      
-    }   
+      }
+    }
   }
 }
 
 // get a font from the $fontfaces map
 @function font-get($font) {
-  @return map-get($fontfaces, $font); 
+  @return map-get($fontfaces, $font);
 }
 
-// get the rootsize within the context of a breakpoint 
+// get the rootsize within the context of a breakpoint
 @function get-rootsize(){
-  // default to rootsize of null 
-  $rootsize: 16;  
+  // default to rootsize of null
+  $rootsize: 16;
   $rootsize: map-fetch($breakpoint-map  , (0, 'rootsize'));
-  
+
   // wich breakpoint are we in
-  $current-bp: breakpoint-get-context('min-width');      
-  
-  // we are in a breakpoint  
+  $current-bp: breakpoint-get-context('min-width');
+
+  // we are in a breakpoint
   @if($current-bp) {
     // breakpoint-get-context returns a list, get the first breakpoint value (min-width)
     $b: nth($current-bp,1);
     // check for current breakpoint in the breakpoint-map and return its rootsize
-    @each $breakpoint, $target-value in $breakpoint-map { 
+    @each $breakpoint, $target-value in $breakpoint-map {
       $e: map-fetch($target-value, ('start'));
       // if this is the current breakpoint, get the rootsize
       @if($e == $b) {
-        $rootsize: map-fetch($target-value, ('rootsize'));        
+        $rootsize: map-fetch($target-value, ('rootsize'));
       }
-    }    
-  }  
+    }
+  }
 
   @return $rootsize;
 }
 
-// get the rootsize within the context of a breakpoint 
+// get the rootsize within the context of a breakpoint
 @function get-gutter-vertical(){
-  // default to rootsize of null 
-  $gutter: 16;  
+  // default to rootsize of null
+  $gutter: 16;
   $gutter: map-fetch($breakpoint-map  , (0, 'gutter'));
-  
+
   // wich breakpoint are we in
-  $current-bp: breakpoint-get-context('min-width');      
-  
-  // we are in a breakpoint  
+  $current-bp: breakpoint-get-context('min-width');
+
+  // we are in a breakpoint
   @if($current-bp) {
     // breakpoint-get-context returns a list, get the first breakpoint value (min-width)
     $b: nth($current-bp,1);
     // check for current breakpoint in the breakpoint-map and return its rootsize
-    @each $breakpoint, $target-value in $breakpoint-map { 
+    @each $breakpoint, $target-value in $breakpoint-map {
       $e: map-fetch($target-value, ('start'));
       // if this is the current breakpoint, get the rootsize
       @if($e == $b) {
-        $gutter: map-fetch($target-value, ('gutter'));        
+        $gutter: map-fetch($target-value, ('gutter'));
       }
-    }    
-  }  
+    }
+  }
 
   @return $gutter;
 }
 
-// font-family
+/*
+ff($font)
+
+sets a font-family (stack) from a map key <br>
+with this mixin we can use a map key, e.g. body to get the correct font stack<br>
+font faces are set in settings/_variables.scss
+
+$font      - the name of the font-face (body, title)
+
+Styleguide tools.mixins.type.ff
+*/
+
 @mixin ff ($font) {
   // get the font-stack and remove surrounding quotes
-  $font-stack: map-fetch($fontfaces, ($font,'font-family'));  
+  $font-stack: map-fetch($fontfaces, ($font,'font-family'));
   $font-stack: unquote($font-stack);
-  
+
   //set font-family
   font-family: $font-stack;
 }
 
-// font-family
+/*
+fw($font, $weight)
+
+sets a font-weight for a font-face <br>
+for some fonts bold is font-weight:600, for others 700<br>
+with this mixin we can use a map key, e.g. bold to get the correct weight for the $font<br>
+weights are set in settings/_variables.scss
+
+$font      - the name of the font-face we want the weight of (body, title)
+$weight    - the name of the weight (light, normal, medium, bold)
+
+Styleguide tools.mixins.type.fw
+*/
+
 @mixin fw ($font, $weight) {
   // get the font-stack and remove surrounding quotes
-  $font-weight: map-fetch($fontfaces, ($font, 'weights', $weight));    
-  
+  $font-weight: map-fetch($fontfaces, ($font, 'weights', $weight));
+
   //set font-family
   font-weight: $font-weight;
 }

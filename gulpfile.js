@@ -187,7 +187,8 @@ gulp.task('docs', function(){
     destination: config.docs.dest,
     builder: config.docs.template,
     //homepage: config.server.styleguide.homepage,
-    css: config.css.dest,
+    //css: '../' + config.css.dest + '/app.css',
+    //js: '../' + config.js.dest + '/app.js',
     title: 'Styleguide',
     })
   });
