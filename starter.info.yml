@@ -15,5 +15,5 @@ stylesheets-remove:
   - core/assets/vendor/normalize-css/normalize.css
 libraries-override:
   classy/base: false
-  core/jquery: false
+  core/jquery: true
   core/jquery.ui: false

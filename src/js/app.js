@@ -1,6 +1,6 @@
 import TransitionManager from 'transitions/TransitionManager';
 import $ from "jquery";
-import { $document, $html, $body, isDebug } from 'utils/environment';
+import { $document, $html, $body, $window, isDebug } from 'utils/environment';
 import ScrollManager from 'modules/ScrollManager';
 
 import Navigation from './modules/Navigation'
