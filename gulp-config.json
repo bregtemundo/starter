@@ -1,5 +1,5 @@
 {
-  "server": "drupal.docker.localhost:8000",
+  "server": "drupal2.docker.localhost:8000",
   "sourcemaps": true,
   "css": {
     "src": "src/css",
