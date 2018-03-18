@@ -5,3 +5,5 @@ app:
       dist/css/app.css: {}
   js:
     dist/js/app.js: {}
+  dependencies:
+    - core/jquery
