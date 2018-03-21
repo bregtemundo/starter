@@ -37,10 +37,13 @@ fieldset {
 
 /**
  * styled Checkboxes and radiobuttons
+ *
+ * 1. use opacity instead of display:none; so we keep some of default browser behavior (html validation)
  */
 input[type=checkbox],
 input[type=radio] {
-  display: none;
+  opacity:0;  /* [1] */
+  position: absolute;
 }
 input[type=checkbox] + label,
 input[type=radio] + label {
