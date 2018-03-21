@@ -122,9 +122,15 @@ gulp
 - add a lint for testing code standards (scss, js, html?)
 - visual diffing would be nice : https://meowni.ca/posts/2017-puppeteer-tests/
 
+sass
+- can we lose some of the default css files loaded or is this not worth it (very minimal filesize)
+- look into critical path css (can this be automated, manual?) + how to load in drupal
+
 js 
 - popup/overlay (e.g. https://sachinchoolur.github.io/lightgallery.js/)
 - embedding (iframe scale, fitvid.js)
+- alternative form mmenu? with smaller file size?
+- instead of importing from gsap (which points to the tweenMax file) try importing from gsap/TweenLite, gsap/EasePack. or load it trough CDN and remove it from the build package with browserify-shim in package.json
 
 
 
