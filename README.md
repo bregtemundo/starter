@@ -11,6 +11,7 @@ First make sure [docker compose] is installed correctly
 - download the docker4drupal container from [docker4drupal] 
 - customize the docker settings in the .env file (url, database connection, services to use,.. are set here)
 - **windows** : to allow file uploads from drupal, make sure to execute php as root, change the docker-compose.yml according to [docker4drupal root]
+- remove file docker-compose.override.yml, this will fire up a vanilla Drupal but we want to install Drupal with composer
 - start docker for first time or when changes to config are made (within project folder)
     ```sh
     $ docker-compose up
