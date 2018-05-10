@@ -20,6 +20,10 @@ First make sure [docker compose] is installed correctly
     ```sh
     $ docker-compose start
     ```
+- if you get an error like ...not a valid windows path, run this command first in powershell
+    ```sh
+    $ $Env:COMPOSE_CONVERT_WINDOWS_PATHS=1
+    ```
 - you can then access your url (e.g. http://drupal2.docker.localhost:8000) 
 - to execute php inside the container (e.g. drupal cr, composer) (**doesn't work from within WSL, does work from within powershell**)
     ```sh
