@@ -1,4 +1,4 @@
-import $ from "jquery.slim.min.js";
+import $ from "jquery";
 
 const APP_NAME     = 'boilerplate';
 const DATA_API_KEY = '.data-api';
