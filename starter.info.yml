@@ -7,6 +7,7 @@ libraries:
 base theme: classy
 regions:
   header: Header
+  offcanvas: Offcanvas
   content: Content
   sidebar_first: 'Sidebar first'
   footer: Footer

@@ -1,7 +1,7 @@
 import { $document, $window, $body, $html } from '../utils/environment';
 import $ from "jquery";
 import "match-media";
-import "jquery.mmenu";
+import offside from 'offside-js';
 import Headroom from "headroom";
 
 // superfish doesn't have an export
@@ -43,22 +43,32 @@ export default class Navigation {
 
   initMobileNavigation(){
     // setup mmenu
-    this.mobileMenu = $(".menu--main").mmenu(
-      //options
-      {
-        extensions: [
-          "pagedim",
-          // "fullscreen"
-        ],
-        offCanvas: {
-          position: "right",
-          zposition: "front",
-          pageNodetype: "nav",
-        },
-        navbar: false,
-        slidingSubmenus: false, // display submenu below
-      }
-    ).data('mmenu');
+    // setup mmenu
+    this.mobileMenu = offside( ".offcanvas", {
+      buttonsSelector: 'mmenu__toggle',
+      slidingSide: 'right',
+
+      beforeOpen: function(){
+        $('body').removeClass('offside-closing');
+        $('body').removeClass('offside-opened');
+        $('body').removeClass('offside-opening');
+        clearTimeout(this.offsideInt);
+        this.offsideInt = setTimeout( () => { $('body').addClass('offside-opened') }, 1 );
+      },
+      afterOpen: function(){
+        this.offsideInt = setTimeout( () => { $('body').addClass('offside-opening') }, 100 );
+      },
+      beforeClose: function(){
+        $('body').removeClass('offside-opened');
+        $('body').removeClass('offside-opening');
+        $('body').removeClass('offside-closing');
+        clearTimeout(this.offsideInt);
+        $('body').addClass('offside-closing')
+      },
+      afterClose: function(){
+        this.offsideInt = setTimeout( () => { $('body').removeClass('offside-closing') }, 600 );
+      },
+    });
 
 
     //add the toggle
@@ -67,14 +77,7 @@ export default class Navigation {
   }
 
   openCloseMobileNavigation(){
-    if($html.hasClass('mm-opened')){
-      this.mobileMenu.close();
-      $('.c-mmenu__toggle').removeClass('c-mmenu__toggle--close');
-    }
-    else{
-      this.mobileMenu.open();
-      $('.c-mmenu__toggle').addClass('c-mmenu__toggle--close');
-    }
+    this.mobileMenu.toggle();
   }
 
   initDesktopNavigation(){

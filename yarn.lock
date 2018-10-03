@@ -4560,6 +4560,10 @@ object.omit@^2.0.0:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
+offside-js@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/offside-js/-/offside-js-1.4.0.tgz#2d2d37b0b7e8ea625df183de42f34be63ff3c3b2"
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"

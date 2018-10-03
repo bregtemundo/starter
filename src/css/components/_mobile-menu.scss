@@ -1,0 +1,261 @@
+ /* offside-js 1.4.0 26-03-2018
+* Minimal JavaScript kit without library dependencies to push things off-canvas using just class manipulation
+* https://github.com/toomuchdesign/offside.git
+*
+* by Andrea Carraro
+* Available under the MIT license
+*/
+
+/* Off-canvas element CSS */
+.offside {
+  position: fixed; /* Does not play well with some old browsers (see: README) */
+  width: 200px;
+  height: 100%;
+  top: 0;
+  z-index: 9999;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
+}
+
+/* Left off-canvas elements default status: out of the page */
+.offside,
+.offside--left {
+  left: -200px;
+}
+
+/* Right off-canvas elements default status: out of the page */
+.offside--right {
+  left: auto;
+  right: -200px;
+}
+
+/*
+* Left off-canvas element is open:
+* - off-canvas element slides in
+* - container elements slides out
+*/
+.offside--left.is-open,
+.offside-js--is-left .offside-sliding-element {
+  transform: translate3d(200px, 0, 0);
+}
+
+/*
+* Right off-canvas element is open:
+* - off-canvas element slides in
+* - container elements slides out
+*/
+.offside--right.is-open,
+.offside-js--is-right .offside-sliding-element {
+  transform: translate3d(-200px, 0, 0);
+}
+
+/* Elements Transitions */
+.offside-js--interact .offside,
+.offside-js--interact .offside-sliding-element {
+  transition: transform 2.2s cubic-bezier(.16, .68, .43, .99);
+
+  /* improves performance issues on mobile*/
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+/* Body overflow */
+.offside-js--init {
+  overflow-x: hidden;
+}
+
+
+
+/* Fallback movements for browser not supporting CSS 3d Transitions
+----------------------------------------------- */
+
+/* Modernizr false negative csstransforms3d fix, reset CSS 3d Transitions */
+.no-csstransforms3d .offside {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.no-csstransforms3d .offside-sliding-element {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Element is open: off-canvas element slides in */
+.no-csstransforms3d .offside--left.is-open {
+  left: 0;
+}
+
+.no-csstransforms3d .offside--right.is-open {
+  right: 0;
+}
+
+/* Element is open: container elements slide out */
+.no-csstransforms3d > .offside-js--is-left .offside-sliding-element {
+  right: -200px;
+}
+
+.no-csstransforms3d > .offside-js--is-right .offside-sliding-element {
+  left: -200px;
+}
+
+
+/*
+ *
+ */
+ .offside--full {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.offside--full.is-open,
+.offside-js--is-full .offside-sliding-element {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+
+/*
+ * open/ close button
+ *
+ * 1. the mmenu has z-index 2
+ */
+.c-mmenu__toggle {
+  z-index: 5; /* [1] */
+  position: absolute;
+  right: 0;
+  top: 0;
+  @include icon(hamburger, after);
+  text-decoration: none;
+
+  @include hide-text();
+  &:after {
+    font-size: 4rem;
+    color: color(body);
+    line-height: 1;
+
+    @include respond-to(md) {
+      font-size: 5rem;
+    }
+  }
+
+}
+
+.c-mmenu__toggle--close {
+  @include icon(close, after);
+  position: fixed;
+
+  top: vr(2);
+  right: vr(2);
+
+  @include respond-to(md){
+    top: vr(5);
+    right: vr(5);
+  }
+}
+
+
+// hide on init to avoid FOUT while js not executed
+.offcanvas:not(.offside) {
+  display: none;
+}
+
+
+/*
+ * Transitions
+ *
+ 1. outro transition is set to slide in (hardcoded) in positioning
+ 2. Intro transition is set to slide in (hardcoded) in positioning
+*/
+.offside--full {
+  z-index: 8;
+  background-color: color(white);
+
+  // hide the menu
+  display: none;
+  opacity: 0;
+  transform: none;
+  transition: transform .7s $easeInCubic, opacity .7s $easeInCubic ;
+}
+.offside-opened .offside--full {
+  // show the menu
+  display: block;
+  transform: translate3d( 0, 30%, 0 );
+  opacity: 0;
+
+}
+.offside-opening .offside--full {
+  // animate in
+  transform: translate3d( 0, 0, 0 );
+  opacity: 1;
+  transition: transform .9s $easeOutExpo, opacity .6s $easeOutCubic;
+}
+
+.offside-closing .offside--full {
+  // animate in
+  display: block;
+  opacity: 0;
+  transition: opacity .6s $easeOutCubic;
+}
+
+
+/*
+ *
+ */
+.offcanvas .region-offcanvas {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  @include o-list-bare;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+
+}
+
+
+/*
+ * Transitions individual items
+*/
+.offcanvas .menu-item a {
+  // hide the menu
+  display: none;
+  transform: none;
+  transition: transform .9s $easeOutCubic, opacity .6s $easeOutQuad;
+
+  @include type(h2, 1, 2, title);
+  // @include fw(title, bold);
+  text-decoration: none;
+
+}
+
+@for $i from 1 to 10 {
+  .offcanvas .menu-item:nth-child(#{$i}) a { transition-delay: .2 + $i * 0.15s; }
+}
+
+.offside-opened .menu-item a {
+  // show the menu and reset animation
+  display: inline-block;
+  transform: translateY( 100% );
+  opacity: 0;
+  transition: none;
+}
+.offside-opening .menu-item a {
+  // animate the menu in
+  transform: translateY( 0 );
+  opacity: 1;
+  transition: transform .9s $easeOutBack, opacity .6s $easeOutQuad;
+}
+
+.offside-closing .menu-item a {
+  // animate the menu out
+  display: inline-block;
+  transform: translateY( -100% );
+  opacity: 0;
+  transition: transform .9s $easeInBack, opacity .3s $easeOutQuad;
+}
+
+
