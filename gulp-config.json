@@ -19,7 +19,8 @@
       "node_modules/superfish/src/css"
     ],
     "support": [
-      "last 3 versions"
+      "last 3 versions",
+      "safari 8"
     ]
   },
   "js": {
