@@ -38,8 +38,18 @@ class App {
     WebFont.load({
       google: {
         families: ['Roboto:300,400,500,700']
-      }
+      },
+      active: this._onFontActive.bind(this),
+      inactive: this._onFontActive.bind(this)
     });
+  }
+
+  _onFontActive() {
+    this.fontActive = true;
+
+    sessionStorage.fonts = true;
+
+    $document.trigger({ type: 'fontActive' });
   }
 
   _startTransitions(){

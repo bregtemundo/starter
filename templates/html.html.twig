@@ -38,6 +38,13 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
+    <script>
+      (function() {
+        if (sessionStorage.fonts) {
+          document.documentElement.classList.add('wf-active');
+        }
+      })();
+    </script>
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#
@@ -50,6 +57,6 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token }}">    
+    <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
