@@ -106,19 +106,52 @@ Styleguide tools.mixins.type.type
     @else {
       $lh: 1.2 * $fs;
     }
-    @include typeset($font: $font, $fontsize: $fs, $lineheight: $lh, $leader: $leader, $trailer: $trailer);
+
+    // we use a fallback font to avoid jank we calculate a different font-size and line-height
+    $font-size-fallback: map-fetch($font, ('fallback', 'font-size'));
+    $line-height-fallback: map-fetch($font, ('fallback', 'line-height'));
+    $letter-spacing-fallback: map-fetch($font, ('fallback', 'letter-spacing'));
+    letter-spacing: $fs * $letter-spacing-fallback;
+    @include typeset($font: $font, $fontsize: $fs * $font-size-fallback, $lineheight: $lh * $line-height-fallback, $leader: $leader, $trailer: $trailer);
+
+    .wf-active & {
+      @include typeset($font: $font, $fontsize: $fs, $lineheight: $lh, $leader: $leader, $trailer: $trailer);
+      letter-spacing: 0;
+    }
   }
   @else {
     //get rootsize of current breakpoint, used as a context to calc rem
     $active-rootsize: get-rootsize();
 
-    //output font-size and line-height
-    font-size: rem($fs, $active-rootsize);
+    // we use a fallback font to avoid jank we calculate a different font-size and line-height
+    $font-size-fallback: map-fetch($font, ('fallback', 'font-size'));
+    $line-height-fallback: map-fetch($font, ('fallback', 'line-height'));
+    $letter-spacing-fallback: map-fetch($font, ('fallback', 'letter-spacing'));
+    letter-spacing: $fs * $letter-spacing-fallback;
+
+    //output font-size
+    font-size: rem($fs * $font-size-fallback);
+    .wf-active & {
+      font-size: $fs;
+    }
+
+    //output letter-spacing
+    letter-spacing: $fs * $letter-spacing-fallback;
+    .wf-active & {
+      letter-spacing: 0;
+    }
+
+    //output line-height
     @if $lh != null {
       @if(unit($lh) == 'px'){
-        $lh: rem($lh, $active-rootsize);
+        $lh: rem($lh);
       }
-      line-height: $lh;
+
+      line-height: $lh * $line-height-fallback;
+
+      .wf-active & {
+        line-height: $lh;
+      }
     }
 
     @if $lh != null {
@@ -134,10 +167,10 @@ Styleguide tools.mixins.type.type
 
       // convert px to rem
       @if(unit($mt) == 'px'){
-        $mt: rem($mt, $active-rootsize);
+        $mt: rem($mt);
       }
       @if(unit($mb) == 'px'){
-        $mb: rem($mb, $active-rootsize);
+        $mb: rem($mb);
       }
 
       @if $type-type == 'line-height' {
@@ -153,6 +186,7 @@ Styleguide tools.mixins.type.type
         }
 
         $font-empty-space: ($lh_in_px - $fs)/2;
+        $font-empty-space: rem($font-empty-space);
         margin-top: $mt - $font-empty-space;
         margin-bottom: $mb - $font-empty-space;
       }
@@ -234,8 +268,15 @@ Styleguide tools.mixins.type.ff
   $font-stack: map-fetch($fontfaces, ($font,'font-family'));
   $font-stack: unquote($font-stack);
 
+  $font-stack-fallback: map-fetch($fontfaces, ($font, 'fallback', 'font-family'));
+  $font-stack-fallback: unquote($font-stack-fallback);
+
   //set font-family
-  font-family: $font-stack;
+  font-family: $font-stack-fallback;
+
+  .wf-active & {
+    font-family: $font-stack;
+  }
 }
 
 /*
@@ -259,4 +300,3 @@ Styleguide tools.mixins.type.fw
   //set font-family
   font-weight: $font-weight;
 }
-

@@ -24,7 +24,13 @@ $fontfaces: (
       light: 300,
       normal: 400,
       bold: 700
-    )
+    ),
+    fallback: (
+      font-family: '"Comic Sans MS", "Comic Sans", Arial, sans-serif',
+      font-size: .96,
+      line-height: 1.05,
+      letter-spacing: .038
+     )
   ),
   'title': (
     font-family: 'Roboto, Arial, sans-serif',
@@ -35,7 +41,13 @@ $fontfaces: (
       normal: 400,
       medium: 500,
       bold: 700
-    )
+    ),
+    fallback: (
+      font-family: 'Arial, sans-serif',
+      font-size: .96,
+      line-height: 1.05,
+      letter-spacing: .038
+     )
   )
 );
 
