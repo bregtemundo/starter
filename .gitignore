@@ -74,3 +74,5 @@ typings/
 
 ### SublimeText ###
 .sublime-gulp.cache
+
+app-source-map-eplorer.html

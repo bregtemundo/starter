@@ -21,6 +21,8 @@ minify , squeze those pngs
  const iconfontCss = require('gulp-iconfont-css');
  const kss = require('kss');
  const del = require('del');
+ const sourcemapExplorer = require('source-map-explorer');
+ const fs = require('fs');
 
 
  const config = require('./gulp-config.json');
@@ -169,6 +171,16 @@ gulp.task('production', function() {
 });
 
 gulp.task('test', function(){
+  smeJson = sourcemapExplorer(config.js.dest + '/app.js', {html:true});
+  fs.writeFile(config.js.dest + '/app-source-map-eplorer.html', smeJson.html, (err) => {
+    if (err) throw err;
+    console.log('//SOURCE MAP EXPLORER');
+    console.log(smeJson.files);
+    console.log('for more details open ' + config.js.dest + '/app-source-map-eplorer.html' +  ' in the browser');
+  });
+
+
+  console.log('//CSS');
   gulp.src(config.css.dest + '/*.css')
   .pipe(plugins.parker());
 

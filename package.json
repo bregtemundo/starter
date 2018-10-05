@@ -58,6 +58,7 @@
     "rimraf": "latest",
     "sass-easing": "^1.0.3",
     "sassline": "^2.1.2",
+    "source-map-explorer": "^1.6.0",
     "susy": "^2.2.12",
     "typi": "^3.1.0",
     "vinyl-buffer": "^1.0.0",
