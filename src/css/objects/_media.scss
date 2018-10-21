@@ -9,11 +9,11 @@
 
 @mixin o-media() {
   @include clearfix();
-  display: block;   
+  display: block;
 }
 
 @mixin o-media__img() {
-  background: red; 
+  background: red;
   float: left;
   margin-right: gutter();
 
@@ -23,11 +23,11 @@
 }
 
 @mixin o-media__img--right() {
-  float: right;  
+  float: right;
   margin-left: gutter();
 }
 
-@mixin o-media__body() {  
+@mixin o-media__body() {
   overflow: hidden;
   display: block;
 
@@ -38,8 +38,9 @@
 }
 
 // create default BEM classes using the mixins
+/*
 .o-media {
-  @include o-media();  
+  @include o-media();
 }
 
 
@@ -53,12 +54,13 @@
     @include o-media__body();
   }
 
-
+*/
 
 
 /* Reversed media objects.
    ========================================================================== */
 
+/*
 .o-media--reverse {
 
   > .o-media__img {
@@ -68,3 +70,4 @@
   }
 
 }
+*/

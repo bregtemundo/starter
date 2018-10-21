@@ -9,8 +9,8 @@ $debug: false;
 @include add-breakpoint(lg, 1325px);
 
 // use baseline grid for typo or not
-$type-type: 'baseline'; // font-size, line-height, baseline: where to measure leader and trailer space from
-$baseline-grid: true; //if true $type-type is baseline
+$type-type: 'line-height'; // font-size, line-height, baseline: where to measure leader and trailer space from
+$baseline-grid: false; //if true $type-type is baseline
 $vertical-padding: 20px;
 
 

@@ -45,9 +45,9 @@
   }
 }
 
-<% _.each(glyphs, function(glyph) { %>.<%= cssClass%>-<%= glyph.fileName %> {
-  @include <%= cssClass%>(<%= glyph.fileName %>);
-}
+/* possible icons: */
+<% _.each(glyphs, function(glyph) { %>
+  /* @include <%= cssClass%>(<%= glyph.fileName %>); */
 <% }); %>
 
 

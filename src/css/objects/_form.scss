@@ -13,7 +13,7 @@
 @mixin o-form-item__input() {
   padding: vr($form-item-input-padding);
 }
-
+/*
 .o-form-item {
   @include o-form-item();
 }
@@ -25,6 +25,7 @@
 .o-form-item__input {
   @include o-form-item__input();
 }
+*/
 
 /*
  * show a form item where the input is below the label
@@ -42,7 +43,7 @@
   display: block;
   padding: vr($form-item-input-padding);
 }
-
+/*
 .o-form-item-stacked {
   @include o-form-item-stacked();
 }
@@ -54,6 +55,7 @@
 .o-form-item-stacked__input {
   @include o-form-item-stacked__input();
 }
+*/
 
 
 /*
@@ -73,7 +75,7 @@
   display: inline-block;
   padding: vr($form-item-input-padding);
 }
-
+/*
 .o-form-item-inline {
   @include o-form-item-inline();
 }
@@ -85,3 +87,4 @@
 .o-form-item-inline__input {
   @include o-form-item-inline__input();
 }
+*/

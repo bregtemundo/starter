@@ -13,6 +13,7 @@
   border-right-width: 0;
 }
 
+/*
 .o-table {
   @include o-table;
 }
@@ -20,6 +21,7 @@
 .o-table__cell {
   @include o-table__cell;
 }
+*/
 
 /*
  * table with vertical and horizontal borders separating cells
@@ -31,7 +33,7 @@
 @mixin o-table-bordered__cell() {
   padding: vr($table-padding);
 }
-
+/*
 .o-table-bordered {
   @include o-table-bordered;
 }
@@ -39,6 +41,7 @@
 .o-table-bordered__cell {
   @include o-table-bordered__cell;
 }
+*/
 
 
 /*
@@ -56,6 +59,7 @@
   border-width: 0;
 }
 
+/*
 .o-table-striped {
   @include o-table-striped;
 }
@@ -63,3 +67,4 @@
 .o-table-striped__cell {
   @include o-table-striped__cell;
 }
+*/

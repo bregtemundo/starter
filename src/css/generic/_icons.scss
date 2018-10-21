@@ -66,30 +66,23 @@
   }
 }
 
-.icon-close {
-  @include icon(close);
-}
-.icon-down-arrow {
-  @include icon(down-arrow);
-}
-.icon-facebook {
-  @include icon(facebook);
-}
-.icon-hamburger {
-  @include icon(hamburger);
-}
-.icon-instagram {
-  @include icon(instagram);
-}
-.icon-linkedin {
-  @include icon(linkedin);
-}
-.icon-right-arrow {
-  @include icon(right-arrow);
-}
-.icon-twitter {
-  @include icon(twitter);
-}
+/* possible icons: */
+
+  /* @include icon(close); */
+
+  /* @include icon(down-arrow); */
+
+  /* @include icon(facebook); */
+
+  /* @include icon(hamburger); */
+
+  /* @include icon(instagram); */
+
+  /* @include icon(linkedin); */
+
+  /* @include icon(right-arrow); */
+
+  /* @include icon(twitter); */
 
 
 
